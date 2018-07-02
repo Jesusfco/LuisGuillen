@@ -19,9 +19,9 @@ class CreateBlogsTable extends Migration
             $table->string('title');
             $table->text('resume');
             $table->text('text');
-            $table->text('youtube');
+            $table->text('youtube')->nullable();
             $table->date('date');
-            $table->string('img');
+            $table->string('img')->nullable();
             $table->timestamps();
         });
     }
