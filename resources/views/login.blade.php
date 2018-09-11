@@ -8,51 +8,52 @@
     <title>LuisGuillen Panel</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="{{ url('css/admin/login.css')}}">
     
     
 </head>
 <body>
 
+   
+
+    <div class="cardSpace">
+
+
+
+        <div class="loginCardModule">
+            <h2 id="bienvenida">INICIA SESIÓN</h2>
     
-
-    <div class"space">
+            <img id="logo" src="{{url('images/logo.jpg')}}">
     
-        <div class="loginCard">
-            <h1>Login</h1>
-
-            <div class="row">
-
-                <form class="col s12" method="POST" action="">
-
-                {{ csrf_field() }}
-
-                    <div class="row">
-
-                        <div class="input-field col 12">
-                            <i class="material-icons prefix">email</i>
-                            <input type="email" name="email" required>
-                            <label >Correo</label>
-                        </div>
-
-                        <div class="input-field col 12">
-                            <i class="material-icons prefix">security</i>
-                            <input type="password" name="password" required>
-                            <label >Contraseña</label>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn btn-default">Accesar</button>
-
-
+            <br>
+    
+    
+    
+            <div id="formSpace">
+    
+                <form (submit)="accesar()" method="POST" action="" autocomplete="off">
+                    
+                    {{ csrf_field() }}
+    
+                    <input name="email" type="email" placeholder="Correo" #focus><br>
+    
+                    <input  name="password" type="password" placeholder="Contraseña"><br>
+    
+    
+    
+                    <button type="submit" class="btn black">Iniciar sesión</button>
+                    
+    
                 </form>
+    
+                <p>¿Olvidaste tu Contraseña?</p>
+    
+    
             </div>
-
+    
+    
         </div>
-
-
-
     </div>
-
 
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>

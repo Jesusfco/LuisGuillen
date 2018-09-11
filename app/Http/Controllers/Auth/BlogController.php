@@ -68,6 +68,44 @@ class BlogController extends Controller
         return view('admin/editBlog')->with(['blog'=> $blog]);
     }
 
+    public function update($id, Request $request) {
+
+        $this->validate($request, [
+            'title' => 'required',
+             'resume' => 'required',
+             'date' => 'required',
+             'text' => 'required',
+        ]);
+
+        $blog = Blog::find($id);  
+        
+        if($request->file('img')) {
+            ini_set('memory_limit','256M');
+            $img = $request->file('img');
+            $file_route = time().'_'. $img->getClientOriginalName();
+
+
+
+            Image::make($request->file('img'))
+                  ->fit(900,600)
+                  ->save('images/blog/' . $id . '/' . $file_route);
+
+            File::delete('images/blog/' . $id . '/' .$blog->img);
+
+            $blog->img = $file_route;
+
+        }
+        
+        $blog->title = $request->title;
+        $blog->resume = $request->resume;
+        $blog->date = $request->date;
+        $blog->text = $request->text;
+        $blog->youtube = $request->youtube;
+        $blog->save();
+
+        return redirect('/app/blog/update/'.$blog->id);
+    }
+
     public function destroy(Request $request)
     {
         $id =  $request->id;
