@@ -9,7 +9,7 @@ use App\Mail\ContactMail;
 class VisitorController extends Controller
 {
     public function index() {
-        return view('welcome');
+        return view('visitor/index');
     }
 
     public function help() {

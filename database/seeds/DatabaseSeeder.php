@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             'user_type' => 10,
             'status' => 1,
             'gender' => 1,
+            
             'password' => bcrypt('oaxaca2015'),
             'created_at' => date_create(),
             'updated_at' => date_create(),

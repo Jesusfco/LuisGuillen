@@ -1,0 +1,109 @@
+.line {
+    height: 2px !important;
+    background: black;
+    width: 125px !important;
+    margin-bottom: 25px;
+}
+
+.sliderContent {
+    height: 100vh;
+    width: 100%;
+    padding-top: 80px;
+}
+
+.slide {
+    height: 100%;
+    display: flex;
+    /* position: absolute; */
+}
+
+.slide-text {
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+.slide-text h1 {
+    font-size: 60px;
+}
+
+.slide-text h1 {
+    font-size: 60px;
+}
+
+
+/* LUISGUILLEN */
+
+.luisguillen {
+    height: 500px;
+    display: block;
+}
+
+.luisguillen img {
+    height: -webkit-fill-available;
+    display: block;
+    margin: 0 auto;
+}
+
+.luisguillen .container {
+    height: -webkit-fill-available;
+}
+
+.luisguillen .container div {
+    width: 50%;
+    height: 100%;
+}
+
+
+/* COACHMENTAL SECTION */
+
+.coachmental {
+    height: 100vh;
+}
+
+.coachmental .container {
+    background: white;
+    padding-top: 20px;
+}
+
+.services {
+    display: flex;
+    padding: 40px;
+}
+
+.services div h3 {
+    font-size: 70px;
+}
+
+
+/* CONTACTAME SECTION */
+
+.contactame {
+    background: #00C6C1;
+    padding-bottom: 70px;
+}
+
+.contactame .container div {
+    width: 50%;
+}
+
+input,
+textarea {
+    width: 100%;
+    background: none;
+    border: 3px solid black;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+textarea {
+    height: 120px;
+}
+
+form button {
+    width: 100%;
+}
+
+form button:hover {
+    background: rgb(114, 202, 198) !important;
+}
