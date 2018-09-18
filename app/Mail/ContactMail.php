@@ -30,12 +30,13 @@ class ContactMail extends Mailable
     public function build(request $request)
     {
         return $this->view('mail.contact',[
-                            'text'=> $request->text, 
+                            'text'=> $request->message, 
                             'client' => $request->name, 
-                            'mail' => $request->mail])
-                            ->to('contacto@luisguillen.com.mx', 'Luis Guillen')
-                                ->subject('Luis Guillen NUEVO Contacto || ' . $request->name . ' se esta contactando contigo.')
-                                ->from($request->mail, $request->name);
+                            'mail' => $request->email])
+                            ->to('contacto@luisguillen.mx', 'Luis Guillen')
+                            // ->to('jfcr@live.com', 'JESUS FCO CORTES')
+                                ->subject('Luis Guillen NUEVO Contacto || ' . $request->subject )
+                                ->from($request->email, $request->name);
                         
                             // ->to('jfcr@live.com');
     }

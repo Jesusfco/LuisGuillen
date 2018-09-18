@@ -66,25 +66,91 @@
             <div class="services">
                 <div>
                     <h2 class="centerText">Hipnosis</h2>
-                    <h3 class="centerText"><i class="fa fa-line-chart"></i></h3>
-                    <p>Es el trabajo con la mente subconsciente, quien es quien controla nuestros programas mentales</p>
+                    <h3 class="centerText blueFont"><i class="fa fa-line-chart"></i></h3>
+                    <p class="centerText">Es el trabajo con la mente subconsciente, quien es quien controla nuestros programas mentales</p>
                 </div>
 
                 <div>
                     <h2 class="centerText">PNL</h2>
-                    <h3 class="centerText"><i class="fas fa-cubes"></i></h3>
-                    <p>Es un método de comunicación, su premisa parte de las teorías constructivistas que afirman el ser humano no opera directamente sobre el mundo real</p>
+                    <h3 class="centerText blueFont"><i class="fas fa-cubes"></i></h3>
+                    <p class="centerText">Es un método de comunicación, su premisa parte de las teorías constructivistas que afirman el ser humano no opera directamente sobre el mundo real</p>
                 </div>
 
                 <div>
                     <h2 class="centerText">Neurociencia</h2>
-                    <h3 class="centerText"><i class="fa fa-pie-chart"></i></h3>
-                    <p>Tenemos un cerebro y este es físico, PNL y la hipnosis mueven el software de la computadora humana (cerebro), con neurociencia tomamos en cuenta las condiciones físicas.</p>
+                    <h3 class="centerText blueFont"><i class="fa fa-pie-chart"></i></h3>
+                    <p class="centerText">Tenemos un cerebro y este es físico, PNL y la hipnosis mueven el software de la computadora humana (cerebro), con neurociencia tomamos en cuenta las condiciones físicas.</p>
                 </div>
         
             </div>
     </div>
     
+</section>
+
+<section class="blog">
+
+        <div class="container">
+                
+        
+                <div class="line"></div>
+                <h1>BLOG</h1>
+
+                <br><br>
+
+                <div class="blogContainer flex">
+
+                    @foreach($blogs as $blog)
+                    <div class="blog-piece">
+                    <img src="{{ url('images/blog/' . $blog->id . '/' . $blog->img) }}">
+                        <div>
+                            <h3> {{ $blog->title}}</h3><br>
+                            <p>{{ $blog->resume }}</p>
+                            <br>
+                            <hr>
+                        <a href="{{ url('blog', $blog->id ) }}"><button class="button">Leer más...</button></a>
+                        </div> 
+                    </div>
+
+                    @endforeach
+                </div>
+                  
+
+
+</section>
+
+<section class="backgroundImg eventoProximo centerElements flex" style="background-image: url({{ url('images/index/background2.jpg') }})">
+
+    <div class=" container">
+        <div class="line"></div>
+        <h1>PROXIMO EVENTO</h1>
+        <br><br>
+
+        <div class="cardBackground">
+            <h3 class="centerText">CONFERENCIA LIDERAZGO DF</h3>
+            <div class="flex">
+
+                <div class="textEvent">
+                    <p>El evento tiene el proposito de dar las claves para el liderazgo,
+                        ya sea del ambito deportivo, empresarial  e incluso familiar.
+                        Organizar un equipo es parte de nuestro día a día, no te pierdas la oportunidad
+                        de vivir esta experiencia.</p>
+
+                        <p>Lugar: Ciudad de México</p>
+                        <p>Fecha: 23/09/2018
+                    
+                </div>
+                <div class="eventDivImg">
+                    <img src="http://www.publimarkcreative.com/wp-content/uploads/2017/08/shutterstock_148146287-e1453720217702.jpg">
+                </div>
+
+            </div>
+            <br>
+            <div class="flex centerElements">
+                <button class="button">Aparta tu lugar</button>
+            </div>
+        </div>
+    </div>
+
 </section>
 
 <section class="contactame">
@@ -100,7 +166,7 @@
 
 
             <p><br>
-                Consultorio<br>
+                <strong>Consultorio</strong><br>
                 Calle Newton 199 Int. 101<br>
                 Polanco, Ciudad de México, CP 11560<br>
                 Sesiones Individuales: (961) 1123427
@@ -115,11 +181,15 @@
         </div>
 
         <div>
-            <form>
-                <input type="text" required>
-                <input type="email" required>
-                <input type="text" required>
-                <textarea required></textarea>
+            <form method="POST" onsubmit="return sendEmail()">
+
+                {{ csrf_field() }}
+                <input value="{{ url('/')}}" id="url" type="hidden">
+
+                <input type="text" placeholder="Nombre" id="name" >
+                <input type="email" placeholder="Correo" id="email" >
+                <input type="text" placeholder="Asunto" id="subject" >
+                <textarea placeholder="Mensaje" id="message" ></textarea>
                 <button class="button">Enviar Mensaje</button>
             </form>
         </div>

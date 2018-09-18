@@ -1,0 +1,14 @@
+.headBlog {
+    height: 450px;
+}
+
+.blogContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between
+}
+
+.blogContainer>div {
+    width: 30%;
+    margin-bottom: 40px;
+}

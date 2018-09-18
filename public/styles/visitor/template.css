@@ -26,6 +26,14 @@ h5 {
     font-family: 'Archivo Black', sans-serif !important;
 }
 
+.line {
+    height: 2px !important;
+    border-radius: 4px;
+    background: black;
+    width: 40px !important;
+    margin-bottom: 25px;
+}
+
 header {
     position: fixed;
     height: 80px;
@@ -69,7 +77,7 @@ header .links {
 
 .button {
     display: block;
-    border: 3px solid black;
+    border: 2px solid black;
     padding: 7px 13px;
     color: white;
     background: black;
@@ -79,7 +87,7 @@ header .links {
 
 .button:hover {
     color: rgb(68, 68, 68);
-    background: rgb(221, 221, 221);
+    background: rgba(255, 255, 255, 0);
 }
 
 section {
@@ -128,4 +136,47 @@ footer img {
 
 .social-icons {
     list-style: none;
+    padding-top: 10px;
+}
+
+.social-icons li {
+    display: inline;
+    margin-right: 8px;
+    color: white;
+}
+
+.social-icons a {
+    color: white;
+}
+
+footer>div {
+    justify-content: space-between;
+}
+
+.blueFont {
+    color: #00C6C1;
+}
+
+
+/* BLOG */
+
+.blog-piece {
+    border: 1px solid rgb(197, 197, 197);
+}
+
+.blog-piece img {
+    width: 100%;
+    display: block;
+}
+
+.blog-piece div {
+    padding: 20px;
+}
+
+.blog-piece p {
+    font-size: 14px;
+}
+
+.blog-piece hr {
+    margin-bottom: 10px;
 }

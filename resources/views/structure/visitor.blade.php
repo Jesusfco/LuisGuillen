@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>@yield('title')</title>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto:100,300,400,500,900" rel="stylesheet">
     
+    <link href="http://amerigas.mx/sweet/sweetalert.css" type="text/css" rel="stylesheet" >
+
     <link rel="stylesheet" type="text/css" href="{{ url('styles/visitor/template.css') }}">
     <link href="{{ url('css/font-awesome.min.css') }}" rel="stylesheet">
     @yield('css')
@@ -27,15 +30,13 @@
 
             <div class="links">
                 
-                <a href="" class="active">Inicio</a>
+                <a href="{{ url('/')}}" class="active">Inicio</a>
                 <a href="">Luis Guillén</a>
                 <a href="">Coach Mental</a>
                 <a href="">Servicios</a>
-                <a href="">Eventos</a>
-                <a href="">Blog</a>
+                <a href="{{ url('eventos')}}">Eventos</a>
+                <a href="{{ url('blog')}}">Blog</a>
                 <a href="">Contáctame</a>
-
-
             </div>
 
         </div>
@@ -48,7 +49,9 @@
 
         <div class="container flex">
             <div>
-                <p>© 2018 Francisco Rodríguez. Desarrollado por <img src="http://roguezservices.com/img/logoNav.png"></p>
+                <p>© 2018 Francisco Rodríguez. Desarrollado por <a href="http://roguezservices.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="http://roguezservices.com/img/logoNav.png"></a>
+                </p>
             </div>
         
             <div class="social-icons">
@@ -70,6 +73,9 @@
         
     </footer>
 
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="http://amerigas.mx/sweet/sweetalert.min.js"></script>
+    <script src="{{ url('js/email.js') }}"></script>
     @yield('scripts')
 
 </body>

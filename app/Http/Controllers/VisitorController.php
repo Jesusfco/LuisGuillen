@@ -5,11 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Mail;
 use App\Mail\ContactMail;
+use App\Blog;
 
 class VisitorController extends Controller
 {
     public function index() {
-        return view('visitor/index');
+        $blogs = Blog::orderBy('date', 'DESC')->limit(3)->get();
+        return view('visitor/index')->with(['blogs' => $blogs]);
+    }
+
+    public function blog() {
+        $blogs = Blog::orderBy('date', 'DESC')->paginate(15);
+        return view('visitor/blog')->with(['blogs' => $blogs]);
     }
 
     public function help() {
@@ -21,12 +28,6 @@ class VisitorController extends Controller
         Mail::send(new ContactMail());
 
         return 'Mail enviado || SERVIDOR';
-        // Mail::send(['text' => 'mail'], ['name', 'JESUS RODRIGUEZ'], function($message){
-        // 	$message->to('jfcr@live.com', 'TO Bitfumes')->subject('TEST EMAIL');
-        // 	$message->from('rodriguez@amerigas.mx', 'Rodriguez');
-
-        // 	$message->to('rodriguez@amerigas.mx', 'TO Bitfumes')->subject('TEST EMAIL');
-        // 	$message->from('rodriguez@amerigas.mx', 'Rodriguez');
-        // });
+        
 }
 }
