@@ -8,6 +8,11 @@
 
 p {
     line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.outMargin {
+    margin: 0 !important;
 }
 
 h1,
@@ -16,6 +21,7 @@ h3,
 h4,
 h5 {
     font-family: 'Archivo Black', sans-serif;
+    margin-bottom: 20px;
 }
 
 .roboto {

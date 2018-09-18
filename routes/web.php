@@ -13,6 +13,7 @@
 
 Route::get('/', 'VisitorController@index');
 Route::get('/blog', 'VisitorController@blog');
+Route::get('/blog/{id}', 'VisitorController@readBlog');
 Route::get('aspecto-ayuda', 'VisitorController@help');
 
 Route::post('/mail', 'VisitorController@mail');

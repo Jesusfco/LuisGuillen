@@ -1,6 +1,7 @@
 @extends('structure.visitor')
 
 @section('title', 'Luis Guillen || Couch Mental || Inicio')
+@section('activeLink', 'home')
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ url('styles/visitor/index.css') }}">    

@@ -1,6 +1,7 @@
 @extends('structure.visitor')
 
 @section('title', 'Blog || Luis Guillen || Couch Mental')
+@section('activeLink', 'blog')
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ url('styles/visitor/blog.css') }}">    
@@ -18,42 +19,6 @@
 </div>
 
 <section class="blogContainer container">
-
-        @foreach($blogs as $blog)
-    
-        <div class="blog-piece">
-
-            <img src="{{ url('images/blog/' . $blog->id . '/' . $blog->img) }}">
-
-            <div>
-                <h3> {{ $blog->title}}</h3><br>
-                <p>{{ $blog->resume }}</p>
-                <br>
-                <hr>
-                <a href="{{ url('blog', $blog->id ) }}"><button class="button">Leer más...</button></a>
-            </div> 
-
-        </div>
-
-        @endforeach
-
-        @foreach($blogs as $blog)
-    
-        <div class="blog-piece">
-
-            <img src="{{ url('images/blog/' . $blog->id . '/' . $blog->img) }}">
-
-            <div>
-                <h3> {{ $blog->title}}</h3><br>
-                <p>{{ $blog->resume }}</p>
-                <br>
-                <hr>
-                <a href="{{ url('blog', $blog->id ) }}"><button class="button">Leer más...</button></a>
-            </div> 
-
-        </div>
-
-        @endforeach
 
         @foreach($blogs as $blog)
     

@@ -19,6 +19,11 @@ class VisitorController extends Controller
         return view('visitor/blog')->with(['blogs' => $blogs]);
     }
 
+    public function readBlog($id) {
+        $blog = Blog::find($id);
+        return view('visitor/readBlog')->with(['blog' => $blog]);
+    }
+
     public function help() {
         return view('aspects');
     }

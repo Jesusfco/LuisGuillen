@@ -30,12 +30,12 @@
 
             <div class="links">
                 
-                <a href="{{ url('/')}}" class="active">Inicio</a>
-                <a href="">Luis Guillén</a>
-                <a href="">Coach Mental</a>
-                <a href="">Servicios</a>
-                <a href="{{ url('eventos')}}">Eventos</a>
-                <a href="{{ url('blog')}}">Blog</a>
+                <a href="{{ url('/')}}" id="homeWWW">Inicio</a>
+                <a href="" id="luisWWW">Luis Guillén</a>
+                <a href="" id="coachWWW">Coach Mental</a>
+                <a href="" id="servicesWWW">Servicios</a>
+                <a href="{{ url('eventos')}}" id="eventWWW">Eventos</a>
+                <a href="{{ url('blog')}}" id="blogWWW">Blog</a>
                 <a href="">Contáctame</a>
             </div>
 
@@ -75,7 +75,11 @@
 
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="http://amerigas.mx/sweet/sweetalert.min.js"></script>
-    <script src="{{ url('js/email.js') }}"></script>
+    <script src="{{ url('js/visitor/email.js') }}"></script>
+    <script>
+        var linkToActivated = "#@yield('activeLink')WWW"
+    </script>
+    <script src="{{ url('js/visitor/activeLink.js') }}"></script>
     @yield('scripts')
 
 </body>
