@@ -2,7 +2,8 @@ var sendingMail = 0;
 
 function sendEmail() {
 
-    if (sendEmail != 0) {
+    if (sendingMail != 0) {
+        alert('El correo esta siendo enviado');
         return false;
     }
 

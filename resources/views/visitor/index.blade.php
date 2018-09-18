@@ -185,12 +185,12 @@
             <form method="POST" onsubmit="return sendEmail()">
 
                 {{ csrf_field() }}
-                <input value="{{ url('/')}}" id="url" type="hidden">
+                <input value="{{ url('/')}}" id="url" type="hidden" required>
 
-                <input type="text" placeholder="Nombre" id="name" >
-                <input type="email" placeholder="Correo" id="email" >
-                <input type="text" placeholder="Asunto" id="subject" >
-                <textarea placeholder="Mensaje" id="message" ></textarea>
+                <input type="text" placeholder="Nombre" id="name" required>
+                <input type="email" placeholder="Correo" id="email" required>
+                <input type="text" placeholder="Asunto" id="subject" required>
+                <textarea placeholder="Mensaje" id="message" required></textarea>
                 <button class="button">Enviar Mensaje</button>
             </form>
         </div>

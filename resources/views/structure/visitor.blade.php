@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Roboto:100,300,400,500,900" rel="stylesheet">
     
-    <link href="http://amerigas.mx/sweet/sweetalert.css" type="text/css" rel="stylesheet" >
+    <link href="{{ url('assets/sweet/sweetalert.css') }}" type="text/css" rel="stylesheet" >
 
     <link rel="stylesheet" type="text/css" href="{{ url('styles/visitor/template.css') }}">
     <link href="{{ url('css/font-awesome.min.css') }}" rel="stylesheet">
@@ -74,11 +74,9 @@
     </footer>
 
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="http://amerigas.mx/sweet/sweetalert.min.js"></script>
+    <script src="{{ url('assets/sweet/sweetalert.min.js') }}"></script>
     <script src="{{ url('js/visitor/email.js') }}"></script>
-    <script>
-        var linkToActivated = "#@yield('activeLink')WWW"
-    </script>
+    <script> var linkToActivated = "#@yield('activeLink')WWW"; </script>
     <script src="{{ url('js/visitor/activeLink.js') }}"></script>
     @yield('scripts')
 
