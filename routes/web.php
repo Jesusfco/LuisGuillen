@@ -32,4 +32,10 @@ Route::get('/app/blog/update/{id}/uploadPhotos', 'Auth\BlogController@uploadPhot
 Route::post('/app/blog/update/{id}/uploadPhotos', 'Auth\BlogController@uploadPhoto');
 Route::get('/app/blog/destroy', 'Auth\BlogController@destroy');
 
+Route::get('/app/events', 'Auth\EventsController@list');
+Route::get('/app/events/create', 'Auth\EventsController@create');
+Route::post('/app/events/create', 'Auth\EventsController@store');
+Route::get('/app/events/update/{id}', 'Auth\EventsController@edit');
+Route::post('/app/events/update/{id}', 'Auth\EventsController@update');
+Route::get('/app/events/destroy', 'Auth\EventsController@destroy');
 

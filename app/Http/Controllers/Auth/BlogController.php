@@ -13,16 +13,17 @@ use File;
 
 class BlogController extends Controller
 {
-    public function index(Request $request)
-    {
+    public function index(Request $request) {
+
         $noticias = Blog::search($request->name)
             ->orderBy('id','desc')
             ->paginate(15);
-        return view('admin/blogs')->with(['noticias'=> $noticias]);
+
+        return view('admin/blog/blogs')->with(['noticias'=> $noticias]);
     }
 
     public function create() {
-        return view('admin/createBlog');
+        return view('admin/blog/createBlog');
     }
 
     public function store(Request $request) {
@@ -65,7 +66,7 @@ class BlogController extends Controller
     public function edit($id)
     {
         $blog = Blog::find($id);          
-        return view('admin/editBlog')->with(['blog'=> $blog]);
+        return view('admin/blog/editBlog')->with(['blog'=> $blog]);
     }
 
     public function update($id, Request $request) {

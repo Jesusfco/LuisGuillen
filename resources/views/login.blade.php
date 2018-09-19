@@ -23,7 +23,7 @@
         <div class="loginCardModule">
             <h2 id="bienvenida">INICIA SESIÓN</h2>
     
-            <img id="logo" src="{{url('images/logo.jpg')}}">
+            <img id="logo" src="{{url('images/logo1.png')}}">
     
             <br>
     

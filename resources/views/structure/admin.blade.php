@@ -14,10 +14,12 @@
 <body>
 
     <div class="navegation">
-            <img id="logo" src="{{url('images/logo.jpg')}}">
+        <br><br>
+            <img id="logo" src="{{url('images/logo2.png')}}">
             
             <div class="links">
                 <a href="{{ url('app/blog')}}"><p>Noticias</p></a>
+                <a href="{{ url('app/events')}}"><p>Eventos</p></a>
                 <a href="{{ url('app/resetPassword')}}"><p>Cambiar contraseña</p></a>
                 <a href="{{ url('app/closeSession')}}"><p>Cerrar Sesión<p></a>
             </div>
