@@ -8,7 +8,7 @@ class Event extends Model
 {
     //
     protected $fillable = [
-        'name', 'resume', 'date_to', 'date_from', 'description'
+        'name', 'resume', 'date_to', 'date_from', 'description', 'img', 'status'
     ];
 
     public function scopeSearch($query, $name) 
@@ -16,4 +16,5 @@ class Event extends Model
         $n = $query->where('name', 'LIKE', "%$name%")->get();
         return $query->where('name', 'LIKE', "%$name%");
     }
+    
 }

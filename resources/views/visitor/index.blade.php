@@ -31,6 +31,7 @@
             <h1>LUIS GUILLEN</h1>
 
             <br>
+            <img src="{{ url('images/index/luisguilenPersona.jpg')}}" class="movil">
 
             <p>
                 ¡Soy Coach Mental! <br><br>
@@ -45,8 +46,8 @@
 
         </div>
 
-        <div>
-            <img src="{{ url('images/index/luisguilenPersona.jpg')}}">
+        <div class="pc">
+            <img src="{{ url('images/index/luisguilenPersona.jpg')}}" >
         </div>
 
     </div>
@@ -79,7 +80,7 @@
 
                 <div>
                     <h2 class="centerText">Neurociencia</h2>
-                    <h3 class="centerText blueFont"><i class="fa fa-pie-chart"></i></h3>
+                    <h3 class="centerText blueFont"><i class="fas fa-brain"></i></h3>
                     <p class="centerText">Tenemos un cerebro y este es físico, PNL y la hipnosis mueven el software de la computadora humana (cerebro), con neurociencia tomamos en cuenta las condiciones físicas.</p>
                 </div>
         
@@ -171,7 +172,7 @@
                 Calle Newton 199 Int. 101<br>
                 Polanco, Ciudad de México, CP 11560<br>
                 Sesiones Individuales: (961) 1123427
-            </p><br><br>
+            </p>
 
             <p>
                 Conferencias, Talleres, Coaching<br>

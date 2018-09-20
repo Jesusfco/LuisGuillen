@@ -28,7 +28,7 @@
                 <img src="{{ url('images/logo1.png') }}" alt="">
             </div>
 
-            <div class="links">
+            <div class="links pc">
                 
                 <a href="{{ url('/')}}" id="homeWWW">Inicio</a>
                 <a href="" id="luisWWW">Luis Guillén</a>
@@ -39,15 +39,41 @@
                 <a href="">Contáctame</a>
             </div>
 
+            <div class="links movil" id="activeMovMenu">
+                
+                <a  id="homeWWW"><i class="fas fa-bars"></i></a>
+                
+            </div>
+
         </div>
 
     </header>
+
+    <div id="movMenu" class="centerElements inactive opacity">
+        <div class="background" id="movMenuBackground">
+
+        </div>
+
+        <div class="movMenuContainer">
+                                
+            <a href="{{ url('/')}}" id="homeWWW">Inicio</a>
+            <a href="" id="luisWWW">Luis Guillén</a>
+            <a href="" id="coachWWW">Coach Mental</a>
+            <a href="" id="servicesWWW">Servicios</a>
+            <a href="{{ url('eventos')}}" id="eventWWW">Eventos</a>
+            <a href="{{ url('blog')}}" id="blogWWW">Blog</a>
+            <a href="">Contáctame</a>                
+
+        </div>
+    </div>
+    
     
     @yield('content')
 
-    <footer class="">
+    <footer>
 
-        <div class="container flex">
+        <div class="container flex pc">
+
             <div>
                 <p>© 2018 Francisco Rodríguez. Desarrollado por <a href="http://roguezservices.com/" target="_blank" rel="noopener noreferrer">
                     <img src="http://roguezservices.com/img/logoNav.png"></a>
@@ -68,7 +94,31 @@
                     <li><a href="#"><i class="fa fa-github"></i></a></li>-->
                 </ul>
             </div>
+
         </div>
+
+        <div class="social-icons movil">
+                <ul class="social-icons">
+                    <li><a href="https://www.facebook.com/luisguillenoficial/"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://twitter.com/luiseguillen?lang=es"><i class="fa fa-twitter"></i></a></li>
+                    <!--<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                    <li><a href="#"><i class="fa fa-flickr"></i></a></li>-->
+                    <li><a href="https://www.youtube.com/user/REMA77"><i class="fa fa-youtube"></i></a></li>
+                    <!--<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fa fa-github"></i></a></li>-->
+                </ul>
+                <br><br>
+            </div>
+        <div class="movil">
+            <p class="centerText">© 2018 Desarrollado por <br><a href="http://roguezservices.com/" target="_blank" rel="noopener noreferrer">
+                <img src="http://roguezservices.com/img/logoNav.png"></a>
+            </p>
+        </div>
+    
+       
 
         
     </footer>
@@ -78,6 +128,7 @@
     <script src="{{ url('js/visitor/email.js') }}"></script>
     <script> var linkToActivated = "#@yield('activeLink')WWW"; </script>
     <script src="{{ url('js/visitor/activeLink.js') }}"></script>
+    <script src="{{ url('js/visitor/menu.js') }}"></script>
     @yield('scripts')
 
 </body>

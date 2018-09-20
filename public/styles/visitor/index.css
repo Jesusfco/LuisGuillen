@@ -47,6 +47,25 @@
     height: 100%;
 }
 
+@media only screen and (max-width: 700px) {
+    .luisguillen {
+        height: auto;
+    }
+    .luisguillen>div {
+        display: block;
+    }
+    .luisguillen .container div {
+        width: 100%;
+    }
+    .luisguillen img {
+        width: 60%;
+        height: auto;
+    }
+    .luisguillen .container {
+        height: inherit;
+    }
+}
+
 
 /* COACHMENTAL SECTION */
 
@@ -71,6 +90,24 @@
 
 .services div h3 {
     font-size: 70px;
+}
+
+@media only screen and (max-width: 700px) {
+    .coachmental {
+        height: auto;
+        padding-bottom: 40px;
+    }
+    .services div {
+        width: 100%;
+        padding: 15px;
+    }
+    .services {
+        display: block;
+        padding: 10px;
+    }
+    .coachmental .container {
+        background: rgba(255, 255, 255, 0.746);
+    }
 }
 
 
@@ -112,6 +149,15 @@ form button:hover {
     background: rgb(114, 202, 198) !important;
 }
 
+@media only screen and (max-width: 700px) {
+    .contactame .container div {
+        width: 100%;
+    }
+    .contactame .container {
+        display: block;
+    }
+}
+
 
 /* BLOG CONTAINE */
 
@@ -125,6 +171,16 @@ form button:hover {
 
 .blogContainer .blog-piece {
     width: 30%;
+}
+
+@media only screen and (max-width: 700px) {
+    .blogContainer {
+        display: block;
+    }
+    .blogContainer .blog-piece {
+        width: 100%;
+        margin-bottom: 17px;
+    }
 }
 
 
@@ -153,4 +209,14 @@ form button:hover {
 
 .eventDivImg img {
     width: 100%;
+}
+
+@media only screen and (max-width: 700px) {
+    .cardBackground .flex {
+        display: block
+    }
+    .cardBackground .flex div {
+        width: 100%;
+        padding: 15px;
+    }
 }
