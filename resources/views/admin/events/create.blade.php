@@ -15,7 +15,7 @@
                         </div>
 
                         <div class="form-group">
-                          <label>Imagen</label>
+                          <label>Imagen</label><br>
                           <input type="file" name="img" id="imagen" accept="image/x-png,image/gif,image/jpeg" required>
 
                           <p class="help-block">Cargue una fotografía de la noticia</p>
@@ -24,25 +24,31 @@
                         <div class="row"><div class="col-sm-12 col-lg-3">
                             
                          <div class="form-group">
-                          <label>Fecha</label>
-                          <input type="date" name="date" class="form-control" required>
+                          <label>Fecha Inicio</label>
+                          <input type="date" name="date_from" class="form-control" required>
                         </div>
+
+                        <div class="form-group">
+                            <label>Fecha Final - Opcional</label>
+                            <input type="date" name="date_to" class="form-control" >
+                          </div>
                         
                         </div></div>
                                 
-                        <label>Redacta tu noticia</label>
+                        <label>Da una descripcion completa de tu evento</label>
                         <textarea name="editor1" id="editor1" rows="10" cols="80">
 
                         </textarea>
-                        <input type="hidden" class="contenidoNota" name="text" required>
+
+                        <input type="hidden" class="contenidoNota" name="description" required>
                         
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                           <label>Iframe de Youtube</label>
                           <input type="text" name="youtube" class="form-control" name="youtube">
-                        </div>
+                        </div> --}}
                         
                         
-                        <button type="submit" class="btn btn-default">Crear Nueva Nota</button>
+                        <button type="submit" class="btn btn-default">Crear Nuevo Evento</button>
                       </form>
 
 @endsection

@@ -42,11 +42,11 @@
                         
                         <tr id="noticia{{$n->id}}">
                             <td>{{ $n->id }}</td>
-                            <td>{{ $n->title }}</td>
-                            <td>{{ $n->date }}</td>
+                            <td>{{ $n->name }}</td>
+                            <td>{{ $n->date_from }}</td>
                             <td>
                                 
-                                <a href="{{ url('app/event/update/'.$n->id.'') }}" class="btn yellow">Editar </a>
+                                <a href="{{ url('app/events/update/'.$n->id.'') }}" class="btn yellow">Editar </a>
                                 <a  onclick="eliminar({{ $n->id }}, '{{ $n->title }}')" class="btn red"> Eliminar</a>
                                 <a href="{{ url('evento', $n->id) }}" class="btn green">Ver</a>
                             </td>
