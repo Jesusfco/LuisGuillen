@@ -11,6 +11,10 @@ class LoginController extends Controller
     
     public function login() {
 
+        if (Auth::check()) {
+            return redirect('app');
+        }
+
         return view('login');
 
     }
@@ -29,6 +33,29 @@ class LoginController extends Controller
         }
 
         return back();
+    }
+
+    public function logout(){
+        if (Auth::check()) {
+
+            Auth::logout();
+
+        }
+
+        return redirect('/');
+
+    }
+
+    public function homeApp() {
+
+        if (Auth::check()) {
+
+            return view('admin/home');
+
+        }
+
+        return back();
+
     }
 
     

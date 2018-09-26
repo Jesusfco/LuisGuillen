@@ -16,10 +16,17 @@ Route::get('/blog', 'VisitorController@blog');
 Route::get('/blog/{id}', 'VisitorController@readBlog');
 Route::get('aspecto-ayuda', 'VisitorController@help');
 
+// CORREO
 Route::post('/mail', 'VisitorController@mail');
+
+//FACEBOOK
+Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::get('login', 'LoginController@login');
 Route::post('login', 'LoginController@signin');
+Route::get('logout', 'LoginController@logout');
+Route::get('app', 'LoginController@homeApp');
 
 Route::get('/app/blog', 'Auth\BlogController@index');
 Route::get('/app/blog/create', 'Auth\BlogController@create');

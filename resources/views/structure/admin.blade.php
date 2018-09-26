@@ -8,6 +8,7 @@
     <title>LuisGuillen Panel</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url('css/admin/navegationAdmin.css') }}">
     @yield('styles')
 </head>
@@ -15,13 +16,16 @@
 
     <div class="navegation">
         <br><br>
-            <img id="logo" src="{{url('images/logo2.png')}}">
+            <a href="{{ url('/')}}">
+
+                <img id="logo" src="{{url('images/logo2.png')}}">
+            </a>
             
             <div class="links">
                 <a href="{{ url('app/blog')}}"><p>Noticias</p></a>
                 <a href="{{ url('app/events')}}"><p>Eventos</p></a>
                 <a href="{{ url('app/resetPassword')}}"><p>Cambiar contraseña</p></a>
-                <a href="{{ url('app/closeSession')}}"><p>Cerrar Sesión<p></a>
+                <a href="{{ url('logout')}}"><p>Cerrar Sesión<p></a>
             </div>
 
     </div>
