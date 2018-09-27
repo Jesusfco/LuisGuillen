@@ -13,7 +13,12 @@ class Blog extends Model
     public function scopeSearch($query, $name) 
     {
         $n = $query->where('title', 'LIKE', "%$name%")->get();
-//        $m = $query->where('TEXTO', 'LIKE', "%$name%")->union($n)->get();
         return $query->where('title', 'LIKE', "%$name%");
     }
+
+    public function photos()
+    {
+        return $this->hasMany('App\BlogPhoto', 'blog_id', 'id');
+    }
+    
 }

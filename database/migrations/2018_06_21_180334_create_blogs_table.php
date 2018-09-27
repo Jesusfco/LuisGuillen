@@ -21,7 +21,7 @@ class CreateBlogsTable extends Migration
             $table->text('text');
             $table->text('youtube')->nullable();
             $table->date('date');
-            $table->string('img')->nullable();
+            $table->string('img');
             $table->timestamps();
         });
     }

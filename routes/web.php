@@ -28,6 +28,12 @@ Route::post('login', 'LoginController@signin');
 Route::get('logout', 'LoginController@logout');
 Route::get('app', 'LoginController@homeApp');
 
+// RESET PASSWORDS
+Route::get('/resetPassword', 'LoginController@resetPassword');
+Route::post('/resetPassword', 'LoginController@sentTokenReset');
+Route::get('/resetPassword/{token}', 'LoginController@resetPassword2');
+Route::post('/resetPassword/{token}', 'LoginController@updatePassword');
+
 Route::get('/app/blog', 'Auth\BlogController@index');
 Route::get('/app/blog/create', 'Auth\BlogController@create');
 Route::post('/app/blog/create', 'Auth\BlogController@store');

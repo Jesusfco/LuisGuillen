@@ -17,11 +17,11 @@ class CreateEventsTable extends Migration
             $table->increments('id');
             $table->string('name')->unique();
             $table->string('resume');
+            $table->string('img');
             $table->string('date_from');
             $table->string('date_to')->nullable();
-            $table->string('img');            
-            $table->text('description');                        
-            $table->integer('status');                                
+            $table->double('cost', 8, 2);                          
+            $table->text('description');                                     
             $table->timestamps();
         });
     }

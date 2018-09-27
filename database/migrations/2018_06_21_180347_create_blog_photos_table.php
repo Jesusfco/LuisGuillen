@@ -17,7 +17,7 @@ class CreateBlogPhotosTable extends Migration
             $table->increments('id');
             $table->integer('blog_id');
             $table->string('name');
-            $table->integer('order')->nullable;
+            $table->integer('order')->nullable();
             $table->timestamps();
         });
     }

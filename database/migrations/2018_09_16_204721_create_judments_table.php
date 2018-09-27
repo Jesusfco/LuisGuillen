@@ -19,6 +19,10 @@ class CreateJudmentsTable extends Migration
             $table->integer('event_id');   
             $table->integer('qualification'); 
             $table->string('opinion')->nullable(); 
+            $table->string('question1')->nullable(); 
+            $table->string('question2')->nullable(); 
+            $table->string('question3')->nullable(); 
+            $table->string('question4')->nullable();             
             $table->timestamps();
         });
     }
