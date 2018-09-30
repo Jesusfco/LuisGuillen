@@ -9,10 +9,10 @@
                     <div class="row">
                     
                     <div class="col-xs-12 col-sm-6">
-                    <h2>Evento >> Lista</h2>
+                    <h2>Usuarios >> Lista</h2>
                     </div>
 
-                    <a href="{{ url('app/events/create') }}"><button class="btn">Crear Evento</button></a>
+                    <a href="{{ url('app/users/create') }}"><button class="btn">Crear Usuario</button></a>
                     <div class="col-xs-12 col-sm-6">
                         
                     <form method="GET" class="navbar-form">
@@ -33,24 +33,41 @@
                     <table class="striped responsive-table">
                         <thead>
                             <th>ID</th>
-                            <th>Titulo</th>
-                            <th>Costo</th>
-                            <th>Fecha</th>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Telefono</th>
+                            <th>Tipo</th>
+                            <th>Status</th>
                             <th>Acciones</th>
                         </thead>
                         <tbody>
-                        @foreach($events as $n)
+                        @foreach($users as $n)
                         
                         <tr id="noticia{{$n->id}}">
                             <td>{{ $n->id }}</td>
                             <td>{{ $n->name }}</td>
-                            <td>$ {{ $n->cost }}</td>
-                            <td>{{ $n->date_from }}</td>
+                            <td>{{ $n->email }}</td>
+                            <td>{{ $n->phone }}</td>
+                            <td>
+                                @if($n->user_type == 1) Cliente 
+                                @elseif($n->user_type == 2) Vendedor
+                                @elseif($n->user_type == 3) Host
+                                @elseif($n->user_type == 4) Editor
+                                @elseif($n->user_type == 5) Manager
+                                @elseif($n->user_type == 10) Administrador
+                                @endif
+                            </td>
+
+                            <td>
+                                @if($n->status == 1) Activo
+                                @elseif($n->status == 2) Inactivo
+                                @endif
+                            </td>
                             <td>
                                 
-                                <a href="{{ url('app/events/update/'.$n->id.'') }}" class="btn yellow">Editar </a>
-                                <a  onclick="eliminar({{ $n->id }}, '{{ $n->title }}')" class="btn red"> Eliminar</a>
-                                <a href="{{ url('evento', $n->id) }}" class="btn green">Ver</a>
+                                <a href="{{ url('app/users/update/'.$n->id.'') }}" class="btn yellow">Editar </a>
+                                <a  onclick="eliminar({{ $n->id }}, '{{ $n->name }}')" class="btn red"> Eliminar</a>
+                                <a href="{{ url('users', $n->id) }}" class="btn green">Ver</a>
                             </td>
                         </tr>
                         
@@ -59,7 +76,7 @@
                     </table>
                 
                 <center>
-                    {{ $events->links() }}
+                    {{ $users->links() }}
                 </center>
 
             </div>
@@ -70,5 +87,5 @@
 
 @section('scripts')
     <script src="{{url('assets/sweet/sweetalert.min.js')}}"></script>
-    <script src="{{url('js/aplication/eventList.js')}}"></script>
+    <script src="{{url('js/aplication/noticiasList.js')}}"></script>
 @endsection

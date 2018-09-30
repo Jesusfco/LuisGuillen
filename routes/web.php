@@ -52,3 +52,11 @@ Route::get('/app/events/update/{id}', 'Auth\EventsController@edit');
 Route::post('/app/events/update/{id}', 'Auth\EventsController@update');
 Route::get('/app/events/destroy', 'Auth\EventsController@destroy');
 
+// USUARIOS
+Route::get('/app/users', 'Auth\UsersController@list');
+Route::get('/app/users/create', 'Auth\UsersController@create');
+Route::post('/app/users/create', 'Auth\UsersController@store');
+Route::get('/app/users/update/{id}', 'Auth\UsersController@edit');
+Route::post('/app/users/update/{id}', 'Auth\UsersController@update');
+Route::get('/app/users/destroy', 'Auth\UsersController@destroy');
+

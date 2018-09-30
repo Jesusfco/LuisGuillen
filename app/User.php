@@ -28,6 +28,12 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function scopeSearch($query, $name) 
+    {
+        $n = $query->where('name', 'LIKE', "%$name%")->get();
+        return $query->where('name', 'LIKE', "%$name%");
+    }
+
     public function records() 
     {
         return $this->hasMany('App\Record', 'user_id', 'id');
