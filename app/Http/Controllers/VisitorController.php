@@ -34,5 +34,5 @@ class VisitorController extends Controller
 
         return 'Mail enviado || SERVIDOR';
         
-}
+    }
 }
