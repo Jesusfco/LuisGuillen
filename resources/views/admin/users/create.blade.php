@@ -3,27 +3,33 @@
 @section('content')            
 
 <h1>Crear Usuario</h1>
-  <form class="row" role="form" method="POST" enctype="multipart/form-data" onsubmit="return crearNoticia()">
+  <form class="row" role="form" method="POST" enctype="multipart/form-data"  autocomplete="off">
     {{ csrf_field() }}
 
-    <div class="form-group col l12">
+    <div class="form-group col l12 s12">
       <label for="exampleInputEmail1">Nombre completo</label>
-      <input type="text" name="name" class="form-control"  placeholder="Titulo de la noticia" required>
+      <input type="text" name="name" value="{{ old('name') }}" class="form-control"  placeholder="PEPE DE ALBA DEL CARMEN" required>
     </div>
 
-    <div class="form-group col l6">
+    <div class="form-group col l6 s12">
       <label for="exampleInputPassword1">Correo</label>
-      <input type="email" name="resume" class="form-control"  placeholder="ejemplo@gmail.com" required>
+    <input type="email" name="email" class="form-control" value="{{ old('email') }}"  placeholder="ejemplo@gmail.com" required>
+      @if ($errors->has('email'))
+          <span class="helper-text">
+              <strong class="red-text">{{ $errors->first('email') }}</strong>
+          </span>
+      @endif
+
     </div>
 
-    <div class="form-group col l6">
+    <div class="form-group col l6 s12">
       <label for="exampleInputPassword1">Teléfono</label>
-      <input type="phone" name="resume" class="form-control"  placeholder="000-000-0000" required>
+      <input type="tel" value="{{ old('phone') }}" name="phone" class="form-control"  placeholder="000-000-0000" >
     </div>
     <br>
 
-    <div class="input-field col l12">
-      <select>            
+    <div class="input-field col l6 s12">
+      <select name="user_type">            
         <option value="1" selected>Cliente</option>
         <option value="2">Vendedor</option>
         <option value="3">Host</option>
@@ -32,65 +38,76 @@
         <option value="10">Administrador</option>
       </select>
       <label>Tipo de Usuario</label>
-      </div>
-
-    {{-- <div class="form-group col l6">
-      <label>Imagen</label><br>
-      <input type="file" name="img" id="imagen" accept="image/x-png,image/gif,image/jpeg" required>
-
-      <p class="help-block">Cargue una fotografía del Usuario</p>
-    </div> --}}
-        
-        
-    <div class="form-group">
-      <label>Fecha Inicio</label>
-      <input type="date" name="date_from" class="form-control" required>
     </div>
 
-    <div class="form-group">
-        <label>Fecha Final - Opcional</label>
-        <input type="date" name="date_to" class="form-control" >
+    <div class="input-field col l6 s12">
+        <select name="gender">            
+          <option value="1" selected>Masculino</option>
+          <option value="2">Femenino</option>          
+        </select>
+        <label>Sexo</label>
+      </div>
+
+    <div class="input-field col l6 s12">
+      <select disabled>            
+        <option value="1" selected>Activo</option>        
+      </select>
+      <label>Status</label>
+    </div>
+
+    <div class="input-field col l6 s12">
+      <input type="date" name="birthday" value="{{ old('birthday') }}">
+      <label>Fecha de Nacimiento</label>
+    </div>
+
+    <div class="input-field col l6 s12">
+      <input type="text" name="state" value="{{ old('state') }}">
+      <label>Estado</label>
+    </div>
+
+    <div class="input-field col l6 s12">
+      <input type="text" name="city" value="{{ old('city') }}">
+      <label>Ciudad</label>
+    </div>
+
+    <div class="input-field col l6 s12">
+      <input type="text" name="country" value="{{ old('country') }}">
+      <label>País</label>
+    </div>
+
+    <div class="input-field col l6 s12">
+      <input type="text" name="ocupation" value="{{ old('ocupation') }}">
+      <label>Ocupación</label>
+    </div>
+
+    <div class="file-field input-field col l6 s12">
+        <div class="btn">
+          <span>Imagen</span>
+          <input type="file" name="img" accept="image/x-png,image/gif,image/jpeg">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
       </div>
     
+        
+  
     
-            
-    <label>Da una descripcion completa de tu evento</label>
-    <textarea name="editor1" id="editor1" rows="10" cols="80">
-
-    </textarea>
-
-    <input type="hidden" class="contenidoNota" name="description" required>
+    <div class="col s12">
+      <button type="submit" class="btn blue col s12">Crear Nuevo Usuario</button>
+    </div>
     
-    {{-- <div class="form-group">
-      <label>Iframe de Youtube</label>
-      <input type="text" name="youtube" class="form-control" name="youtube">
-    </div> --}}
-    
-    
-    <button type="submit" class="btn btn-default">Crear Nuevo Evento</button>
   </form>
 
 @endsection
 
 @section('scripts')
-    <script src="//cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
+    {{-- <script src="//cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script> --}}
     <script>
-
       
       $(document).ready(function(){
         $('select').formSelect();
       });
-        // Replace the <textarea id="editor1"> with a CKEditor
-        // instance, using default configuration.
-        CKEDITOR.replace( 'editor1' );
-
-        function crearNoticia(){
-            var data = CKEDITOR.instances.editor1.getData();
-            $('.contenidoNota').val(data);
-
-            if(data.length == 0) return false;
-
-//            return false;
-        }
+       
     </script>
 @endsection

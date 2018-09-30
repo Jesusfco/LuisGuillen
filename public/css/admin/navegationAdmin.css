@@ -8,8 +8,8 @@
 
 .navegation img {
     display: block;
-    margin: 0 auto;
-    width: 75%;
+    margin: 30px auto;
+    width: 50%;
 }
 
 .navegation .links a p {

@@ -87,5 +87,5 @@
 
 @section('scripts')
     <script src="{{url('assets/sweet/sweetalert.min.js')}}"></script>
-    <script src="{{url('js/aplication/noticiasList.js')}}"></script>
+    <script src="{{url('js/aplication/usersList.js')}}"></script>
 @endsection
