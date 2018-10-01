@@ -14,6 +14,8 @@
 Route::get('/', 'VisitorController@index');
 Route::get('/blog', 'VisitorController@blog');
 Route::get('/blog/{id}', 'VisitorController@readBlog');
+Route::post('/blog/getComment', 'VisitorController@getComment');
+Route::post('/blog/newComment', 'VisitorController@newComment');
 Route::get('aspecto-ayuda', 'VisitorController@help');
 
 // CORREO

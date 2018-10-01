@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Mail;
 use App\Mail\ContactMail;
 use App\Blog;
+use App\BlogsComment;
+use Auth;
 
 class VisitorController extends Controller
 {
@@ -34,5 +36,29 @@ class VisitorController extends Controller
 
         return 'Mail enviado || SERVIDOR';
         
+    }
+
+    public function getComment(Request $request) {
+
+        $comments = BlogsComment::where('blog_id', $request->blog_id)->paginate(7);
+        return response()->json($comments);
+
+    }
+
+    public function newComment(Request $re) {
+
+        if(Auth::check()) {
+
+            $comment = new BlogsComment();
+
+            $comment->user_id = Auth::id();
+            $comment->blog_id = $re->blog_id;
+            $comment->comment = $re->comment;
+            $comment->save();
+
+            return response()-json($comment);
+
+        }
+
     }
 }

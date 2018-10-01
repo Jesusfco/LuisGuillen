@@ -21,7 +21,8 @@ class CreateEventsTable extends Migration
             $table->string('date_from');
             $table->string('date_to')->nullable();
             $table->double('cost', 8, 2);                          
-            $table->text('description');                                     
+            $table->text('description');              
+            $table->boolean('principal');                                 
             $table->timestamps();
         });
     }
