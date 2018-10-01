@@ -43,7 +43,58 @@
             
             <h4> {{ $blog->date }}</h4>
 
-            <div class="justify-text">{!! $blog->text !!}</div>            
+            <div class="justify-text">{!! $blog->text !!}</div>   
+
+            <hr>
+
+            @if(Auth::check())         
+
+            <div class="autor flex">
+
+                <div class="avatar">
+                
+                    @if(Auth::user()->img != NULL)
+                        <img src="{{ url('images/users', Auth::user()->img) }}">
+                    @else
+                        <img src="{{ url('images/app/user.png') }}">
+                    @endif
+                </div>
+
+                <div class="text flex centerElements">
+                    <h5>Agrega un comentario</h5><br>
+
+                    <form v-on:submit.prevent="newComment()">                    
+                        <textarea v-model="comment.comment"></textarea>
+                        <button>Publicar</button>
+                    </form>
+
+                </div>
+
+            </div>
+
+            @else
+
+            @endif
+
+            <div class="commentary">
+
+                <div class="autor flex">
+
+                    <div class="avatar">
+                        <img src="{{ url('images/users/2.jpg') }}">
+                    </div>
+
+                    <div class="text flex centerElements">                        
+                        <p class="outMargin">  <span class="ABlack">JESUS FCO CORTES</span></p>
+                    </div>
+
+                </div>
+
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam, incidunt iste. Error fuga expedita architecto sapiente non. Voluptates similique veritatis iusto doloribus, deleniti distinctio molestiae incidunt quia repudiandae exercitationem? Ipsum.</p>
+                <p> 21 de marzo 2018 - 7:00 PM</p>
+
+
+            </div>            
 
 </section>
 
