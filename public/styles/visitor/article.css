@@ -32,3 +32,44 @@
         padding-top: 35px;
     }
 }
+
+input,
+textarea {
+    width: 100%;
+    background: none;
+    border: 3px solid black;
+    margin-bottom: 15px;
+    padding: 10px;
+    max-width: 100%;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+}
+
+form button {
+    width: 100%;
+    border: none;
+    padding: 15px;
+}
+
+form button:hover {
+    background: rgb(114, 202, 198) !important;
+}
+
+.newComment .avatar {
+    width: 80px;
+    padding: 10px;
+}
+
+.newComment img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.newComment .text {
+    padding: 15px;
+    width: 100%;
+}
