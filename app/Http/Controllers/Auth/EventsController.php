@@ -51,6 +51,7 @@ class EventsController extends Controller
         $event->date_to = $request->date_to;
         $event->description = $request->description;
         $event->cost = $request->cost;        
+        $event->place = $request->place;        
         $event->img = $file_route;
         
         $event->save();
@@ -99,11 +100,35 @@ class EventsController extends Controller
         $event->date_from = $request->date_from;
         $event->date_to = $request->date_to;
         $event->description = $request->description;
-        $event->cost = $request->cost;                
+        $event->cost = $request->cost;   
+        $event->place = $request->place;               
         
         $event->save();
 
         return back()->with('msj', 'Evento Actualizado');;
+
+    }
+ 
+    public function delete($id){
+
+        $id =  $request->id;
+        $event = Event::find($id);   
+        if($event == NULL) return;
+        EventsDoubt::where('event_id', $event->id)->delete();
+        $questions = EventsQuestion::where('event_id', $event->id)->get();
+
+        foreach($questions as $q) {
+
+            EventsQuestionsAnswer::where('question_id', $q->id)->delete();
+
+        }
+
+        EventsQuestionsAnswer::where('event_id', $event->id)->delete();
+        
+        File::deleteDirectory('images/events/' . $event->id);
+        $event->delete();
+
+        return 'true';
 
     }
 

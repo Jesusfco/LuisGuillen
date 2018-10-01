@@ -28,7 +28,10 @@
       <p class="help-block">Cargue una fotografía de la noticia</p>
     </div>
     
-    <div class="row"><div class="col-sm-12 col-lg-3">
+    <div class="form-group">
+      <label>Lugar del Evento</label>
+      <input type="text" name="place" class="form-control" required>
+    </div>
         
     <div class="form-group">
       <label>Fecha Inicio</label>

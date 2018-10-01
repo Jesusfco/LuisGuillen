@@ -38,7 +38,12 @@
             <input type="file" name="img" id="imagen" accept="image/x-png,image/gif,image/jpeg" >
 
             <p class="help-block">Cargue una fotografía de la noticia</p>
-        </div>                        
+        </div>       
+        
+        <div class="form-group">
+            <label>Lugar del Evento</label>
+            <input type="text" name="place" class="form-control" value="{{ $event->place}}" required>
+        </div>
             
         <div class="form-group col l6">
             <label>Fecha Inicio</label>
