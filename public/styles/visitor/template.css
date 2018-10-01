@@ -11,6 +11,11 @@ p {
     margin-bottom: 18px;
 }
 
+a {
+    color: unset;
+    text-decoration: none;
+}
+
 .outMargin {
     margin: 0 !important;
 }
@@ -34,6 +39,10 @@ h5 {
 
 .justify-text {
     text-align: justify;
+}
+
+.right-text {
+    text-align: right;
 }
 
 .line {
@@ -262,4 +271,13 @@ footer>div {
     .movil {
         display: block !important;
     }
+}
+
+.loginFacebookBtn button {
+    padding: 15px;
+    border: none;
+    background: rgb(23, 108, 204);
+    color: white;
+    margin: 0 auto;
+    display: block;
 }

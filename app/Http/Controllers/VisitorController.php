@@ -9,6 +9,7 @@ use App\Blog;
 use App\BlogsComment;
 use Auth;
 use App\User;
+use Session;
 
 class VisitorController extends Controller
 {
@@ -41,11 +42,16 @@ class VisitorController extends Controller
 
     public function getComment($id,Request $request) {
 
-        $comments = BlogsComment::where('blog_id', $id)->paginate(7);
+        $comments = BlogsComment::where('blog_id', $id)->orderBy('created_at', 'DESC')->paginate(7);
 
         for($i = 0; $i < count($comments); $i++) {
 
             $user = User::find($comments[$i]->user_id);
+
+            if($user == NUll) {
+                $user->name = 'Usuario Desconocido';
+                $user->img = NULL;
+            }
             $comments[$i]->user = $user->name;
             $comments[$i]->img = $user->img;
 
@@ -72,6 +78,14 @@ class VisitorController extends Controller
             return response()->json($comment);
 
         }
+
+    }
+
+    public function saveLastUrlLoginFacebook(){
+
+        Session::put('lastUrl', url()->previous());        
+
+        return redirect('/auth/facebook');
 
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Blog;
 use App\BlogPhoto;
+use App\BlogsComment;
 
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
@@ -112,6 +113,7 @@ class BlogController extends Controller
         $id =  $request->id;
         $n = Blog::find($id);
         BlogPhoto::where('blog_id', $n->id)->delete();
+        BlogsComment::where('blog_id', $n->id)->delete();
         File::deleteDirectory('images/blog/' . $n->id);
         $n->delete();
         return 'true';

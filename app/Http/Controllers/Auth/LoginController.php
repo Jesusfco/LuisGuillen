@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
 use Socialite;
 use App\User;
+use Session;
 
 class LoginController extends Controller
 {
@@ -49,10 +50,20 @@ class LoginController extends Controller
     {        
 
         $user = Socialite::driver($provider)->user();
+        
         // return get_object_vars ($user);
-        // return;
+        
         $authUser = $this->findOrCreateUser($user, $provider);
         Auth::login($authUser, true);
+
+        if (Session::has('lastUrl')) {
+
+            $url = Session::get('lastUrl');
+            Session::forget('lastUrl');
+            return redirect($url);
+
+        }
+
         return redirect($this->redirectTo);
 
     }
@@ -66,9 +77,7 @@ class LoginController extends Controller
         }
         return User::create([
             'name'     => $user->name,
-            'email'    => $user->email,
-            'provider' => $provider,
-            'provider_id' => $user->id
+            'email'    => $user->email,            
         ]);
     }
     

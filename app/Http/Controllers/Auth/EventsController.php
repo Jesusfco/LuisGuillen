@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Event;
 use App\EventsQuestion;
 use App\EventsQuestionsAnswer;
+use App\EventsDoubt;
 use App\User;
 use Image;
 use File;
@@ -110,12 +111,11 @@ class EventsController extends Controller
     }
  
     public function delete($id){
-
-        $id =  $request->id;
+        
         $event = Event::find($id);   
         if($event == NULL) return;
-        EventsDoubt::where('event_id', $event->id)->delete();
-        $questions = EventsQuestion::where('event_id', $event->id)->get();
+        EventsDoubt::where('event_id', $id)->delete();
+        $questions = EventsQuestion::where('event_id', $id)->get();
 
         foreach($questions as $q) {
 
@@ -123,9 +123,9 @@ class EventsController extends Controller
 
         }
 
-        EventsQuestionsAnswer::where('event_id', $event->id)->delete();
+        EventsQuestion::where('event_id', $id)->delete();
         
-        File::deleteDirectory('images/events/' . $event->id);
+        File::deleteDirectory('images/events/' . $id);
         $event->delete();
 
         return 'true';

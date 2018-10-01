@@ -48,6 +48,10 @@ textarea:focus {
     outline: none;
 }
 
+form {
+    position: relative;
+}
+
 form button {
     width: 100%;
     border: none;
@@ -72,4 +76,35 @@ form button:hover {
 .newComment .text {
     padding: 15px;
     width: 100%;
+}
+
+.counter {
+    text-align: right;
+    position: relative;
+    top: -22px;
+    margin: 0;
+}
+
+.messageComment {
+    position: absolute;
+    margin-top: -20px;
+}
+
+.commentary {
+    padding: 15px;
+    border-bottom: 2px solid #86adb3;
+}
+
+.commentary .avatar {
+    width: 45px;
+    height: 45px !important;
+}
+
+.commentary .text {
+    width: 100%;
+}
+
+.commentary .time {
+    font-size: 14px;
+    font-weight: 500;
 }

@@ -67,7 +67,9 @@
 
                     <form v-on:submit.prevent="newComment()">                    
                         <textarea v-model="comment.comment"></textarea>
-                        <span>@{{ comment.comment.length }} / 150</span>
+                        <span class="messageComment" v-if="!validateLength">Su comentario es demasiado extenso</span>
+                        <p class="counter">@{{ comment.comment.length }} / 191</p>
+                        
                         <button>Agregar Comentario</button>
                     </form>
 
@@ -76,6 +78,12 @@
             </div>
 
             @else
+
+            <h3 class="centerText">Inicia Sesión para agregar un comentario</h3>
+
+            <a href="{{ url('lastUrl/LoginFacebook')}}" class="loginFacebookBtn">
+                <button><i class="fa fa-facebook"></i> Iniciar sesión con Facebook</button>
+            </a>
 
             @endif
 
@@ -87,16 +95,17 @@
                         <img v-bind:src="com.img">
                     </div>
 
-                    <div class="text flex centerElements">                        
-                        <p class="outMargin">  <span class="ABlack">@{{ com.user }}</span></p>
+                    <div class="text">                        
+                        <p class="outMargin">  <span class="">@{{ com.user }}</span></p>
+                        <p>@{{ com.comment }}</p>
+                        <p class="right-text time">@{{ com.created_at }}</p>
                     </div>
 
                 </div>
 
-                <p>@{{ com.comment }}</p>
-                <p>@{{ com.created_at }}</p>
+                
 
-
+                
             </div>            
 
 </section>
@@ -120,7 +129,7 @@
            },
 
            comments: [],
-
+           validateLength: true,
            paginate: 1,
            url: '{{url("/")}}/'
 
@@ -139,6 +148,12 @@
         methods: {
             newComment: function() {
                 
+                if(this.comment.comment.length > 191) {
+                    this.validateLength = false;
+                    return;
+                }
+
+                this.validateLength = true;
 
                 var formD = new FormData();
                 formD.append('blog_id', this.comment.blog_id);
@@ -149,7 +164,8 @@
                 
 
                 .then(function(response) {
-
+                    response.data.img = app.setImageUrl(response.data.img);   
+                    response.data.created_at = app.formatTimestamp( response.data.created_at);   
                     app.comments.unshift(response.data);
                     app.setNewComment();
 
@@ -197,6 +213,9 @@
 
             setImageUrl: function(img){
 
+                if(img == null ){
+                    return app.url + 'images/app/user.png';
+                }
                 return app.url + 'images/users/' + img;
 
             },
@@ -215,11 +234,11 @@
 
                 .then(function(response) {
                     for(let x of response.data.data) {
-                        console.log(x);
-                        con
+                        x.created_at = app.formatTimestamp(x.created_at);
+                        x.img = app.setImageUrl(x.img);                        
                         app.comments.push(x);
-                    }
-                
+
+                    }                
                     
                     app.paginate++;
 
@@ -229,6 +248,50 @@
                     // app.errorHandler(error, i);
 
                 });
+
+            },
+
+            formatTimestamp: function(datetime) {
+
+                let string = '';
+
+                let date = datetime.split(' ');
+                // console.log(date);
+
+                let values = date[0].split('-');
+
+                if(values[1] == '01') {
+                values[1] = 'Enero';
+                } else if (values[1] == '02') {
+                values[1] = 'Febrero';
+                } else if (values[1] == '03') {
+                values[1] = 'Marzo';
+                } else if (values[1] == '04') {
+                values[1] = 'Abril';
+                } else if (values[1] == '05') {
+                values[1] = 'Mayo';
+                } else if (values[1] == '06') {
+                values[1] = 'Junio';
+                } else if (values[1] == '07') {
+                values[1] = 'Julio';
+                } else if (values[1] == '08') {
+                values[1] = 'Agosto';
+                } else if (values[1] == '09') {
+                values[1] = 'Septiembre';
+                } else if (values[1] == '10') {
+                values[1] = 'Octubre';
+                } else if (values[1] == '11') {
+                values[1] = 'Noviembre';
+                } else if (values[1] == '12') {
+                values[1] = 'Diciembre';
+                }
+
+                // return values[2] + ' de ' + values[1] + ' del ' + values[0];
+                string =  values[2] + '/' + values[1] + '/' + values[0];
+                
+                let value = date[1].split(':');
+
+                return value[0] + ':' + value[1] + ' ' + string;
 
             },
             

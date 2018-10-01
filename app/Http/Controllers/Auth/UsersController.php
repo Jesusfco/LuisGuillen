@@ -108,6 +108,9 @@ class UsersController extends Controller
     }
 
     public function upper($string) {
+        // $string =  strtr($string, "ÁÉÍÓÚ", "áéíóú");
+        // $string = strtolower($string);
+        // $string = ucwords($string);
         $string = strtoupper($string);
         $string =  strtr($string, "áéíóú", "ÁÉÍÓÚ");
         return $string;

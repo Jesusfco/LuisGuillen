@@ -16,11 +16,11 @@ function eliminar(n, name) {
 
             $.ajax({
                 type: "GET",
-                url: "event/destroy",
+                url: "events/destroy/" + n,
                 async: true,
-                data: {
-                    id: n
-                },
+                // data: {
+                //     id: n
+                // },
                 success: function(data) {
                     //                alert(data);
                     setTimeout(function() {
