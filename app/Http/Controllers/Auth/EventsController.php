@@ -55,6 +55,7 @@ class EventsController extends Controller
         $event->cost = $request->cost;        
         $event->place = $request->place;        
         $event->img = $file_route;
+        $event->capacity = $request->capacity;
         
         $event->save();
 
@@ -85,8 +86,6 @@ class EventsController extends Controller
             $img = $request->file('img');
             $file_route = time().'_'. $img->getClientOriginalName();
 
-
-
             Image::make($request->file('img'))
                   ->fit(900,600)
                   ->save('images/events/' . $id . '/' . $file_route);
@@ -104,6 +103,7 @@ class EventsController extends Controller
         $event->description = $request->description;
         $event->cost = $request->cost;   
         $event->place = $request->place;               
+        $event->capacity = $request->capacity;               
         
         $event->save();
 

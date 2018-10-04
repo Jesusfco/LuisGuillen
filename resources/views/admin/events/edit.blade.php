@@ -42,10 +42,8 @@
             <label>Actualizar Imagen</label><br>
             <input type="file" name="img" id="imagen" accept="image/x-png,image/gif,image/jpeg" >
 
-            <p class="help-block">Cargue una fotografía de la noticia</p>
-        </div>       
-        
-        
+            <p class="help-block">Cargue una fotografía del evento</p>
+        </div>                       
             
         <div class="form-group col s12 l6">
             <label>Fecha Inicio</label>
@@ -56,6 +54,11 @@
             <label>Fecha Final - Opcional</label>
             <input type="date" name="date_to" value="{{ $event->date_to }}" class="form-control" >
         </div>
+
+        <div class="form-group col s6 l4">
+            <label>Cupo</label>
+            <input type="number" name="capacity" value="{{ $event->capacity }}" class="form-control" required>
+          </div>
         
         <div class="col l12">
                 

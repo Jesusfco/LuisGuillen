@@ -33,14 +33,19 @@
       <p class="help-block">Cargue una fotografía de la noticia</p>
     </div>   
         
-    <div class="form-group">
+    <div class="form-group col s6 l4">
       <label>Fecha Inicio</label>
       <input type="date" name="date_from" class="form-control" required>
     </div>
 
-    <div class="form-group">
+    <div class="form-group col s6 l4">
       <label>Fecha Final - Opcional</label>
       <input type="date" name="date_to" class="form-control" >
+    </div>
+
+    <div class="form-group col s6 l4">
+      <label>Cupo</label>
+      <input type="number" name="capacity" class="form-control" required>
     </div>
      
     <label>Da una descripcion completa de tu evento</label>

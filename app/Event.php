@@ -8,7 +8,7 @@ class Event extends Model
 {
     //
     protected $fillable = [
-        'name', 'resume', 'place', 'date_to', 'date_from', 'description', 'img', 'cost', 'principal'
+        'name', 'resume', 'place', 'date_to', 'date_from', 'description', 'img', 'cost', 'principal', 'capacity'
     ];
 
     public function scopeSearch($query, $name) 
