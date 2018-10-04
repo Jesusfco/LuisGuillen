@@ -120,6 +120,7 @@
 
 </section>
 
+@if($event != NULL)
 <section class="backgroundImg eventoProximo centerElements flex" style="background-image: url({{ url('images/index/background2.jpg') }})">
 
     <div class=" container">
@@ -143,13 +144,15 @@
 
             </div>
             <br>
-            <div class="flex centerElements">
+            <a href="{{ url('eventos', $event->id)}}" class="flex centerElements">
                 <button class="button">Aparta tu lugar</button>
-            </div>
+            </a>
         </div>
     </div>
 
 </section>
+
+@endif
 
 <section class="contactame">
 
