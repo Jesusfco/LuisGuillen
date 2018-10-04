@@ -40,8 +40,11 @@
                         </thead>
                         <tbody>
                         @foreach($events as $n)
-                        
+                        @if($n->principal == true)
+                        <tr id="noticia{{$n->id}}" class="purple">
+                        @else 
                         <tr id="noticia{{$n->id}}">
+                        @endif
                             <td>{{ $n->id }}</td>
                             <td>{{ $n->name }}</td>
                             <td>$ {{ $n->cost }}</td>
@@ -51,6 +54,7 @@
                                 <a href="{{ url('app/events/update/'.$n->id.'') }}" class="btn yellow">Editar </a>
                                 <a  onclick="eliminar({{ $n->id }}, '{{ $n->title }}')" class="btn red"> Eliminar</a>
                                 <a href="{{ url('evento', $n->id) }}" class="btn green">Ver</a>
+                                <a href="{{ url('app/events/highlight', $n->id) }}" class="btn blue">Destacar</a>
                             </td>
                         </tr>
                         

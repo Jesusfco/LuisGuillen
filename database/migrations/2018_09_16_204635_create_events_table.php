@@ -17,6 +17,7 @@ class CreateEventsTable extends Migration
             $table->increments('id');
             $table->string('name')->unique();
             $table->string('resume');
+            $table->string('place');
             $table->string('img');
             $table->string('date_from');
             $table->string('date_to')->nullable();

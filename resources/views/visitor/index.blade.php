@@ -128,21 +128,17 @@
         <br><br>
 
         <div class="cardBackground">
-            <h3 class="centerText">CONFERENCIA LIDERAZGO DF</h3>
+            <h3 class="centerText">{{ $event->name }}</h3>
             <div class="flex">
 
                 <div class="textEvent">
-                    <p>El evento tiene el proposito de dar las claves para el liderazgo,
-                        ya sea del ambito deportivo, empresarial  e incluso familiar.
-                        Organizar un equipo es parte de nuestro día a día, no te pierdas la oportunidad
-                        de vivir esta experiencia.</p>
-
-                        <p>Lugar: Ciudad de México</p>
-                        <p>Fecha: 23/09/2018
+                    <p>{{ $event->resume }}</p>
+                    <p>Lugar: {{ $event->place}}</p>
+                    <p>Fecha: {{ $event->date_from}}
                     
                 </div>
                 <div class="eventDivImg">
-                    <img src="http://www.publimarkcreative.com/wp-content/uploads/2017/08/shutterstock_148146287-e1453720217702.jpg">
+                <img src="{{ url('images/events/' . $event->id . '/' . $event->img ) }}">
                 </div>
 
             </div>

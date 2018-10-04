@@ -35,7 +35,8 @@ class EventsController extends Controller
             'date_from' => 'required',            
             //  'youtube' => 'required',
             'img' => 'required|image',
-            'description' => 'required'
+            'description' => 'required',
+            'place' => 'required'
  
         ]);
  
@@ -129,6 +130,19 @@ class EventsController extends Controller
         $event->delete();
 
         return 'true';
+
+    }
+
+    public function highlight($id) {
+
+        $event = Event::find($id);   
+        if($event == NULL) 'Evento Inexistente';
+
+        Event::where('principal', 1)->update(['principal' => NULL]);
+        $event->principal = true;
+        $event->save();
+
+        return back();
 
     }
 

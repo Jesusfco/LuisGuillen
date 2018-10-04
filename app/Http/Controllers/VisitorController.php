@@ -7,6 +7,7 @@ use Mail;
 use App\Mail\ContactMail;
 use App\Blog;
 use App\BlogsComment;
+use App\Event;
 use Auth;
 use App\User;
 use Session;
@@ -15,17 +16,31 @@ class VisitorController extends Controller
 {
     public function index() {
         $blogs = Blog::orderBy('date', 'DESC')->limit(3)->get();
-        return view('visitor/index')->with(['blogs' => $blogs]);
+        $event = Event::where('principal', true)->first();
+        
+        return view('visitor/index')->with(['blogs' => $blogs, 'event' => $event]);
     }
 
     public function blog() {
         $blogs = Blog::orderBy('date', 'DESC')->paginate(15);
         return view('visitor/blog')->with(['blogs' => $blogs]);
-    }
+    }   
 
     public function readBlog($id) {
         $blog = Blog::find($id);
+        if($blog == NULL) return 'Entrada inexistente';
         return view('visitor/readBlog')->with(['blog' => $blog]);
+    }
+
+    public function events() {
+        $events = Event::orderBy('date_from', 'DESC')->paginate(15);
+        return view('visitor/events')->with(['events' => $events]);
+    }
+
+    public function readEvent($id) {
+        $event = Event::find($id);
+        if($event == NULL) return 'Evento inexistente';
+        return view('visitor/readEvent')->with(['event' => $event]);
     }
 
     public function help() {

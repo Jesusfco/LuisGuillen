@@ -28,29 +28,31 @@
             <input type="text" name="resume"  value="{{ $event->resume }}" class="form-control"  placeholder="Escribe brevemente de que se trara la noticia" required>
         </div>
 
-        <div class="form-group col l6">
+        <div class="form-group col s6 l4">
             <label for="exampleInputPassword1">Costo</label>
             <input type="number" name="cost"  value="{{ $event->cost }}" class="form-control"  placeholder="$$$$$" required>
         </div>
 
-        <div class="form-group col l6">
+        <div class="form-group col s6 l4">
+            <label for="exampleInputPassword1">Lugar</label>
+            <input type="text" name="place" value="{{ $event->place }}" class="form-control"  placeholder="Tuxtla Gtz, CDMX" required>
+          </div>
+
+        <div class="form-group col s6 l4">
             <label>Actualizar Imagen</label><br>
             <input type="file" name="img" id="imagen" accept="image/x-png,image/gif,image/jpeg" >
 
             <p class="help-block">Cargue una fotografía de la noticia</p>
         </div>       
         
-        <div class="form-group">
-            <label>Lugar del Evento</label>
-            <input type="text" name="place" class="form-control" value="{{ $event->place}}" required>
-        </div>
+        
             
-        <div class="form-group col l6">
+        <div class="form-group col s12 l6">
             <label>Fecha Inicio</label>
             <input type="date" name="date_from"  value="{{ $event->date_from }}" class="form-control" required>
         </div>
 
-        <div class="form-group col l6">
+        <div class="form-group col s12 l6">
             <label>Fecha Final - Opcional</label>
             <input type="date" name="date_to" value="{{ $event->date_to }}" class="form-control" >
         </div>

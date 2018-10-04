@@ -16,6 +16,8 @@ Route::get('/blog', 'VisitorController@blog');
 Route::get('/blog/{id}', 'VisitorController@readBlog');
 Route::get('/blog/{id}/getComment', 'VisitorController@getComment');
 Route::post('/blog/{id}/newComment', 'VisitorController@newComment');
+Route::get('eventos', 'VisitorController@events');
+Route::get('eventos/{id}', 'VisitorController@readEvent');
 Route::get('aspecto-ayuda', 'VisitorController@help');
 Route::get('lastUrl/LoginFacebook', 'VisitorController@saveLastUrlLoginFacebook');
 
@@ -48,12 +50,15 @@ Route::get('/app/blog/update/{id}/uploadPhotos', 'Auth\BlogController@uploadPhot
 Route::post('/app/blog/update/{id}/uploadPhotos', 'Auth\BlogController@uploadPhoto');
 Route::get('/app/blog/destroy', 'Auth\BlogController@destroy');
 
+
+// Eventos
 Route::get('/app/events', 'Auth\EventsController@list');
 Route::get('/app/events/create', 'Auth\EventsController@create');
 Route::post('/app/events/create', 'Auth\EventsController@store');
 Route::get('/app/events/update/{id}', 'Auth\EventsController@edit');
 Route::post('/app/events/update/{id}', 'Auth\EventsController@update');
 Route::get('/app/events/destroy/{id}', 'Auth\EventsController@delete');
+Route::get('app/events/highlight/{id}', 'Auth\EventsController@highlight');
 
 // USUARIOS
 Route::get('/app/users', 'Auth\UsersController@list');
