@@ -17,10 +17,6 @@
 @section('content')  
 
 
-<br>
-    <br><br>
-
-
 <section class="blogContainer container" id="app">
 
 {{--         
