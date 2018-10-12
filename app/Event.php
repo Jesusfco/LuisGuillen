@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
+    public $avaibleC = 0;
     //
     protected $fillable = [
         'name', 'resume', 'place', 'date_to', 'date_from', 'description', 'img', 'cost', 'principal', 'capacity'
@@ -15,6 +16,21 @@ class Event extends Model
     {
         $n = $query->where('name', 'LIKE', "%$name%")->get();
         return $query->where('name', 'LIKE', "%$name%");
+    }
+
+    public function doubtsCountWithoutAnswer() {
+        $x = 0;
+        foreach($this->doubts as $doubt) {
+            if($doubt->answer == NULL) {
+                $x++;
+            }
+        }
+        return $x;
+    }
+
+    public function avaibleSpace(){
+        $this->avaibleC = $this->capacity - count($this->receipts);
+        return $this->avaibleC;
     }
     
     public function doubts()

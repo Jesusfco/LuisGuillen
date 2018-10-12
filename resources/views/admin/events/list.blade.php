@@ -36,12 +36,14 @@
                             <th>Titulo</th>
                             <th>Costo</th>
                             <th>Fecha</th>
+                            <th>Lugares Disponibles</th>
+                            <th>Dudas sin contestar</th>
                             <th>Acciones</th>
                         </thead>
                         <tbody>
                         @foreach($events as $n)
                         @if($n->principal == true)
-                        <tr id="noticia{{$n->id}}" class="purple">
+                        <tr id="noticia{{$n->id}}" class="yellow">
                         @else 
                         <tr id="noticia{{$n->id}}">
                         @endif
@@ -49,12 +51,18 @@
                             <td>{{ $n->name }}</td>
                             <td>$ {{ $n->cost }}</td>
                             <td>{{ $n->date_from }}</td>
+                            <td>{{ $n->avaibleSpace()}}</td>
+                            <td>{{ $n->doubtsCountWithoutAnswer()}}</td>
                             <td>
                                 
                                 <a href="{{ url('app/events/update/'.$n->id.'') }}" class="btn yellow">Editar </a>
                                 <a  onclick="eliminar({{ $n->id }}, '{{ $n->title }}')" class="btn red"> Eliminar</a>
                                 <a href="{{ url('eventos', $n->id) }}" class="btn green">Ver</a>
                                 <a href="{{ url('app/events/highlight', $n->id) }}" class="btn blue">Destacar</a>
+
+                                @if($n->avaibleC > 1)
+                                    <a href="{{ url('app/receipts/create', $n->id) }}" class="btn purple">Generar Recibo</a>
+                                @endif
                             </td>
                         </tr>
                         

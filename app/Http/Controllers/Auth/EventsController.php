@@ -146,4 +146,38 @@ class EventsController extends Controller
 
     }
 
+    public function getQuestions($id) {
+        $questions = Event::find($id)->questions;
+
+        for($i = 0; $i < count($questions); $i++) {
+            $questions[$i]->answersCount = $questions[$i]->countAnswers();
+        }
+        
+        return response()->json( $questions );
+    }
+
+    public function storeQuestion($id, Request $re) {
+        
+        $question = new EventsQuestion();
+        $question->event_id = $id;
+        $question->question = $re->question;
+        $question->save();
+
+        return response()->json($question);
+
+    }
+
+    public function updateQuestion($id, Request $re) {
+        $question = EventsQuestion::find($re->id);
+        $question->question = $re->question;
+        $question->save();
+        return response()->json(true);
+    }
+
+    public function deleteQuestion($id, Request $re) {
+        EventsQuestionsAnswer::where('question_id', $re->id)->delete();
+        EventsQuestion::find($re->id)->delete();
+        return response()->json(true);
+    }
+
 }

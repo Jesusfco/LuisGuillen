@@ -19,21 +19,10 @@
 
 <section class="blogContainer container" id="app">
 
-{{--         
-            <div class="autor flex">
-                <div class="avatar">
-                    <img src="{{ url('images/users/2.jpg') }}">
-                </div>
-
-                <div class="text flex centerElements">
-                    
-                    <p class="outMargin"> Autor: <span class="ABlack">Luis Guillén</span> - Escrito: {{ $blog->created_at }}</p>
-                </div>
-            </div> --}}
-
             <br>
 
             <h1 class="title"> {{ $event->name}}</h1>
+            
             
             <img src="{{ url('images/events/' . $event->id . '/' . $event->img) }}">
             <h4> {{ $event->date_from }}</h4>

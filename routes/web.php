@@ -58,6 +58,12 @@ Route::post('/app/events/update/{id}', 'Auth\EventsController@update');
 Route::get('/app/events/destroy/{id}', 'Auth\EventsController@delete');
 Route::get('app/events/highlight/{id}', 'Auth\EventsController@highlight');
 
+//Administraion de preguntas de evento
+Route::get('/app/events/update/{id}/getQuestions', 'Auth\EventsController@getQuestions');
+Route::post('/app/events/update/{id}/storeQuestion', 'Auth\EventsController@storeQuestion');
+Route::post('/app/events/update/{id}/updateQuestion', 'Auth\EventsController@updateQuestion');
+Route::post('/app/events/update/{id}/deleteQuestion', 'Auth\EventsController@deleteQuestion');
+
 // USUARIOS
 Route::get('/app/users', 'Auth\UsersController@list');
 Route::get('/app/users/create', 'Auth\UsersController@create');
@@ -66,3 +72,11 @@ Route::get('/app/users/update/{id}', 'Auth\UsersController@edit');
 Route::post('/app/users/update/{id}', 'Auth\UsersController@update');
 Route::get('/app/users/destroy', 'Auth\UsersController@destroy');
 
+// RECIBOS
+Route::get('/app/receipts', 'Auth\ReceiptsController@list');
+Route::get('/app/receipts/create', 'Auth\ReceiptsController@create');
+Route::get('/app/receipts/create/{id}', 'Auth\ReceiptsController@createEvent');
+Route::post('/app/receipts/create', 'Auth\ReceiptsController@store');
+Route::get('/app/receipts/update/{id}', 'Auth\ReceiptsController@edit');
+Route::post('/app/receipts/update/{id}', 'Auth\ReceiptsController@update');
+Route::get('/app/receipts/destroy', 'Auth\ReceiptsController@destroy');

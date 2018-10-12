@@ -26,21 +26,19 @@
             
             <h4> {{ $blog->date }}</h4>
 
-            <div class="justify-text">{!! $blog->text !!}</div>   
-
-            <hr>
-            <br>
-
             <div class="autor flex">
                 <div class="avatar">
                     <img src="{{ url('images/users/2.jpg') }}">
                 </div>
-
-                <div class="text flex centerElements">
-                    
+                <div class="text flex centerElements">                    
                     <p class="outMargin"> Autor: <span class="ABlack">Luis Guillén</span> - Escrito: {{ $blog->created_at }}</p>
                 </div>
-            </div>
+            </div><br>
+
+            <div class="justify-text">{!! $blog->text !!}</div>   
+
+            <hr>
+            <br>           
             
             <div class="fb-share-button" data-href="{{ url()->current()}}" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
             
