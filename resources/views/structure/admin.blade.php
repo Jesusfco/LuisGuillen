@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="{{ url('favicon1.ico') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>LuisGuillen Panel</title>
+    <title>@yield('title') | Luis Guillen Admin Panel</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -25,7 +25,7 @@
             <div class="links">
                 <a href="{{ url('app/blog')}}"><p>Noticias</p></a>
                 <a href="{{ url('app/events')}}"><p>Eventos</p></a>
-                <a href="{{ url('app/recibos')}}"><p>Recibos</p></a>
+                <a href="{{ url('app/receipts')}}"><p>Recibos</p></a>
                 <a href="{{ url('app/users')}}"><p>Usuarios</p></a>
                 <a href="{{ url('app/resetPassword')}}"><p>Cambiar contraseña</p></a>
                 <a href="{{ url('logout')}}"><p>Cerrar Sesión<p></a>
