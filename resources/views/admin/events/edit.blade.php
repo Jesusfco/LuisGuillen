@@ -3,8 +3,8 @@
 @section('content')            
 
     <h1>Editar Evento</h1>
-    <button v-on:click="returnEditEvent()">Editar Evento</button>
-    <button v-on:click="select = 2">Adminsitrar Preguntas</button>
+    <button class=" btn blue" v-on:click="returnEditEvent()">Editar Evento</button>
+    <button class=" btn orange" v-on:click="select = 2">Adminsitrar Preguntas</button>
 
     @if (session()->has('msj'))
     <div class="row">

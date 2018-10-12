@@ -14,7 +14,9 @@ use File;
 
 class EventsController extends Controller
 {
- 
+    public function __construct() {
+        $this->middleware('admin');
+    }
     
     public function list(Request $request) {
         $events = Event::search($request->name)
@@ -152,7 +154,7 @@ class EventsController extends Controller
         for($i = 0; $i < count($questions); $i++) {
             $questions[$i]->answersCount = $questions[$i]->countAnswers();
         }
-        
+
         return response()->json( $questions );
     }
 
@@ -178,6 +180,13 @@ class EventsController extends Controller
         EventsQuestionsAnswer::where('question_id', $re->id)->delete();
         EventsQuestion::find($re->id)->delete();
         return response()->json(true);
+    }
+
+    public function eventSugest(Request $re) {
+        
+        $events = Event::where('name', 'LIKE', '%' . $re->term . '%')->limit(10)->get();
+        return response()->json($events);
+        
     }
 
 }

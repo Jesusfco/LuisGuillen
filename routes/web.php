@@ -79,4 +79,9 @@ Route::get('/app/receipts/create/{id}', 'Auth\ReceiptsController@createEvent');
 Route::post('/app/receipts/create', 'Auth\ReceiptsController@store');
 Route::get('/app/receipts/update/{id}', 'Auth\ReceiptsController@edit');
 Route::post('/app/receipts/update/{id}', 'Auth\ReceiptsController@update');
-Route::get('/app/receipts/destroy', 'Auth\ReceiptsController@destroy');
+Route::get('/app/receipts/destroy/{id}', 'Auth\ReceiptsController@destroy');
+
+
+// RUTAS UTILICES AUTOSUGERENCIAS
+Route::post('app/util/clientSugest', 'Auth\UsersController@clientSugest');
+Route::post('app/util/eventSugest', 'Auth\EventsController@eventSugest');

@@ -11,6 +11,10 @@ use File;
 
 class UsersController extends Controller
 {
+    public function __construct() {
+        $this->middleware('admin');
+    }
+    
     public function list(Request $request) {
         $users = User::search($request->name)
             ->orderBy('name','asc')
@@ -114,6 +118,11 @@ class UsersController extends Controller
         $string = strtoupper($string);
         $string =  strtr($string, "áéíóú", "ÁÉÍÓÚ");
         return $string;
+    }
+
+    public function clientSugest(Request $re) {
+        $users = User::where('name', 'LIKE', '%' . $re->term . '%')->limit(10)->get();
+        return response()->json($users);
     }
 
 }

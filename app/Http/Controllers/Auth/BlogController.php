@@ -14,6 +14,10 @@ use File;
 
 class BlogController extends Controller
 {
+    public function __construct() {
+        $this->middleware('admin');
+    }
+    
     public function index(Request $request) {
 
         $noticias = Blog::search($request->name)

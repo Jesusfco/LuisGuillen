@@ -1,4 +1,5 @@
 @extends('structure.admin')
+@section('title', 'Recibos')
 @section('styles')
     <link href="{{url('assets/sweet/sweetalert.css')}}" rel="stylesheet">
 @endsection
@@ -32,18 +33,18 @@
                         <tbody>
                         @foreach($receipts as $receipt)
                         
-                        <tr id="noticia{{$receipt->id}}">
+                        <tr id="id{{$receipt->id}}">
                             <td>{{ $receipt->id }}</td>
                             <td>{{ $receipt->event->name }}</td>
                             <td>{{ $receipt->user->name }}</td>
                             <td>{{ $receipt->creator->name }}</td>
-                            <td>{{ $receipt->amount }}</td>
+                            <td>${{ $receipt->amount }}</td>
                             <td>{{ $receipt->created_at }}</td>                           
                             <td>
                                 
-                                <a href="{{ url('app/users/update/'.$receipt->id.'') }}" class="btn yellow">Editar </a>
-                                <a  onclick="eliminar({{ $receipt->id }}, '{{ $receipt->name }}')" class="btn red"> Eliminar</a>
-                                <a href="{{ url('users', $receipt->id) }}" class="btn green">Ver</a>
+                                <a href="{{ url('app/receipts/update/'.$receipt->id.'') }}" class="btn yellow">Editar </a>
+                                <a  onclick="eliminar({{ $receipt->id }})" class="btn red"> Eliminar</a>
+                                <a href="{{ url('app/receipts/show', $receipt->id) }}" class="btn green">Ver</a>
                             </td>
                         </tr>
                         
@@ -63,5 +64,10 @@
 
 @section('scripts')
     <script src="{{url('assets/sweet/sweetalert.min.js')}}"></script>
-    <script src="{{url('js/aplication/usersList.js')}}"></script>
+    <script>
+    
+        let actualUrl = '{{ url()->current() }}';
+
+    </script>
+    <script src="{{url('js/aplication/delete.js')}}"></script>
 @endsection
