@@ -16,8 +16,13 @@ Route::get('/blog', 'VisitorController@blog');
 Route::get('/blog/{id}', 'VisitorController@readBlog');
 Route::get('/blog/{id}/getComment', 'VisitorController@getComment');
 Route::post('/blog/{id}/newComment', 'VisitorController@newComment');
+//VISITOR EVENTOS
 Route::get('eventos', 'VisitorController@events');
 Route::get('eventos/{id}', 'VisitorController@readEvent');
+Route::post('eventos/{id}/newDoubt', 'VisitorController@newDoubt');
+Route::post('eventos/{id}/destroyDoubt', 'VisitorController@destroyDoubt');
+Route::get('eventos/{id}/getDoubts', 'VisitorController@getDoubts');
+Route::get('eventos/{id}/myDoubts', 'VisitorController@myDoubts');
 Route::get('aspecto-ayuda', 'VisitorController@help');
 Route::get('lastUrl/LoginFacebook', 'VisitorController@saveLastUrlLoginFacebook');
 

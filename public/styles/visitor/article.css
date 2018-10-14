@@ -117,3 +117,25 @@ form button:hover {
     font-size: 14px;
     font-weight: 500;
 }
+
+.doubt {
+    margin-bottom: 35px;
+}
+
+.doubt .text .fas {
+    padding-right: 15px;
+}
+
+.doubt p {
+    margin-bottom: 0;
+}
+
+.deleteP {
+    color: #840202;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.deleteP .fas {
+    padding-left: 8px;
+}
