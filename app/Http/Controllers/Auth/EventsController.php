@@ -9,8 +9,11 @@ use App\EventsQuestion;
 use App\EventsQuestionsAnswer;
 use App\EventsDoubt;
 use App\User;
+use App\Mail\DoubtAnswerMail;
 use Image;
 use File;
+use Auth;
+use Mail;
 
 class EventsController extends Controller
 {
@@ -180,6 +183,46 @@ class EventsController extends Controller
         EventsQuestionsAnswer::where('question_id', $re->id)->delete();
         EventsQuestion::find($re->id)->delete();
         return response()->json(true);
+    }
+
+    public function viewDoubts($id) {
+
+        $event = Event::find($id);
+
+        if($event == NULL) return 'Noticia inexistente';
+
+        return view('admin/events/doubts')->with('event', $event);
+
+    }
+
+    public function getDoubts($id) {
+        $doubts = EventsDoubt::where('event_id', $id)
+                    ->join('users', 'events_doubts.user_id', '=', 'users.id')
+                    ->select('users.name', 'events_doubts.*')
+                    ->get();
+
+        return response()->json($doubts);
+    }
+
+    public function updateDoubt($id, Request $request) {
+
+        $doubt = EventsDoubt::find($request->id);  
+        if($doubt->read == 0) {
+            Mail::send(new DoubtAnswerMail($doubt));
+            $doubt->read = 1;
+        }
+        $doubt->public = $request->public;
+        $doubt->answer = $request->answer;
+        $doubt->responder_id = Auth::id();
+        $doubt->save();
+
+        return response()->json($doubt);
+
+    }
+
+    public function deleteDoubt($id, Request $re) {
+        EventsDoubt::find($re->id)->delete(); 
+        return 1;
     }
 
     public function eventSugest(Request $re) {

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Mail;
 use App\Mail\ContactMail;
+use App\Mail\DoubtMail;
+use App\Mail\DoubtNotifyAdminMail;
 use App\Blog;
 use App\BlogsComment;
 use App\Event;
@@ -60,6 +62,9 @@ class VisitorController extends Controller
         $doubt->event_id = $id;
         $doubt->question = $re->question;
         $doubt->save();
+
+        Mail::send(new DoubtMail($doubt));
+        Mail::send(new DoubtNotifyAdminMail($doubt));
 
         return response()->json($doubt);
 

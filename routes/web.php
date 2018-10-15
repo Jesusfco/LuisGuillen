@@ -62,6 +62,11 @@ Route::get('/app/events/update/{id}', 'Auth\EventsController@edit');
 Route::post('/app/events/update/{id}', 'Auth\EventsController@update');
 Route::get('/app/events/destroy/{id}', 'Auth\EventsController@delete');
 Route::get('app/events/highlight/{id}', 'Auth\EventsController@highlight');
+//Doubts
+Route::get('/app/events/doubts/{id}', 'Auth\EventsController@viewDoubts');
+Route::get('/app/events/doubts/{id}/getDoubts', 'Auth\EventsController@getDoubts');
+Route::post('/app/events/doubts/{id}/updateDoubt', 'Auth\EventsController@updateDoubt');
+Route::post('/app/events/doubts/{id}/deleteDoubt', 'Auth\EventsController@deleteDoubt');
 
 //Administraion de preguntas de evento
 Route::get('/app/events/update/{id}/getQuestions', 'Auth\EventsController@getQuestions');

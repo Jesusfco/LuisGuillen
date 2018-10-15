@@ -1,4 +1,5 @@
 @extends('structure.admin')
+@section('title', 'Crear Evento')
 
 @section('content')            
 

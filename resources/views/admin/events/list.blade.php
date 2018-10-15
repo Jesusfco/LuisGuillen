@@ -1,4 +1,5 @@
 @extends('structure.admin')
+@section('title', 'Eventos')
 @section('styles')
     <link href="{{url('assets/sweet/sweetalert.css')}}" rel="stylesheet">
 @endsection
@@ -52,7 +53,7 @@
                             <td>$ {{ $n->cost }}</td>
                             <td>{{ $n->date_from }}</td>
                             <td>{{ $n->avaibleSpace()}}</td>
-                            <td>{{ $n->doubtsCountWithoutAnswer()}}</td>
+                        <td><a href="{{ url('app/events/doubts', $n->id) }}">{{ $n->doubtsCountWithoutAnswer()}}</td>
                             <td>
                                 
                                 <a href="{{ url('app/events/update/'.$n->id.'') }}" class="btn yellow">Editar </a>
