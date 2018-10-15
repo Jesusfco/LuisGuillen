@@ -26,3 +26,61 @@
     width: 100%;
     padding: 0 25px;
 }
+
+@media only screen and (max-width: 900px) {
+    .menuIcon {
+        position: absolute;
+        right: 35px;
+    }
+    .content {
+        padding: 20px;
+    }
+    .navegation {
+        height: unset;
+    }
+    #movMenu {
+        position: fixed;
+        z-index: 100;
+        background: rgba(0, 0, 0, 0.808);
+        min-height: 100vh;
+        /* padding-bottom:  800px; */
+        width: 100%;
+        display: flex;
+        transition: .5s;
+        align-items: center;
+        justify-content: center;
+    }
+    #movMenu.inactive {
+        display: none;
+    }
+    #movMenu.opacity {
+        opacity: 0;
+    }
+    #movMenu .background {
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+        top: 0;
+    }
+    .movMenuContainer {
+        width: 75%;
+        padding: 15px;
+        z-index: 101;
+    }
+    .movMenuContainer p {
+        margin: 0;
+    }
+    .movMenuContainer a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        padding: 8px !important;
+        font-size: 25px;
+        border-bottom: 1px solid #999999;
+    }
+    .movMenuContainer a:last-child {
+        border-bottom: none
+    }
+}

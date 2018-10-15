@@ -15,10 +15,15 @@
 </head>
 <body>
 <div id="app">
-    <div class="navegation">
-        <br><br>
-            <a href="{{ url('/')}}">
+    <nav class="black">
+        <a class="menuIcon"  id="activeMovMenu">    <i class="fas fa-bars"></i></a>
+    </nav>
+    <div class="navegation inactive opacity" id="movMenu">
 
+        <div class="background" id="movMenuBackground"></div>
+
+        <div class="movMenuContainer">
+            <a href="{{ url('/')}}">
                 <img id="logo" src="{{url('images/logo2.png')}}">
             </a>
             
@@ -30,6 +35,8 @@
                 <a href="{{ url('app/resetPassword')}}"><p>Cambiar contraseña</p></a>
                 <a href="{{ url('logout')}}"><p>Cerrar Sesión<p></a>
             </div>
+
+        </div>
 
     </div>
 
@@ -43,6 +50,7 @@
 </div>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <script src="{{ url('js/visitor/menu.js') }}"></script>
     @yield('scripts')
     
 </body>
