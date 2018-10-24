@@ -30,7 +30,7 @@
         <div class="container">
 
             <div>
-                <img src="{{ url('images/logo1.png') }}" alt="">
+                <img src="{{ url('images/logo2.png') }}" alt="">
             </div>
 
             <div class="links pc">
@@ -45,9 +45,9 @@
                 <a href="{{ url('login')}}" id="blogWWW">Login</a>
             </div>
 
-            <div class="links movil" id="activeMovMenu">
+            <div class="iconMenuContainer movil" id="activeMovMenu">
                 
-                <a  id="homeWWW"><i class="fas fa-bars"></i></a>
+                <i class="fas fa-bars"></i>
                 
             </div>
 

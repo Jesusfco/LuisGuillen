@@ -56,9 +56,9 @@ h5 {
 
 header {
     position: fixed;
-    height: 80px;
+    height: 60px;
     width: 100%;
-    background: white;
+    background: rgb(19, 19, 19);
     top: 0;
 }
 
@@ -78,12 +78,12 @@ header .container {
 
 header .links a {
     text-decoration: none;
-    color: rgb(42, 42, 42);
+    color: rgb(255, 255, 255);
     margin: 0 10px;
 }
 
 header .links a.active {
-    color: #00C6C1
+    color: #fea000;
 }
 
 header .links {
@@ -99,6 +99,11 @@ header .links.movil i {
 
 
 /* menu movil */
+
+.iconMenuContainer {
+    color: white;
+    font-size: 35px;
+}
 
 #movMenu {
     position: fixed;
@@ -169,6 +174,7 @@ section {
 }
 
 .container {
+    width: 80%;
     max-width: 1000px;
     margin: 0 auto;
 }
@@ -241,7 +247,15 @@ footer>div {
 /* BLOG */
 
 .blog-piece {
-    border: 1px solid rgb(197, 197, 197);
+    /* border: 1px solid rgb(197, 197, 197);] */
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, .15);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .15);
+    transition: all .25s;
+}
+
+.blog-piece:hover {
+    -webkit-box-shadow: 0 0 30px 0 rgba(0, 0, 0, .15);
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, .15);
 }
 
 .blog-piece img {
@@ -250,7 +264,7 @@ footer>div {
 }
 
 .blog-piece div {
-    padding: 20px;
+    padding: 15px;
 }
 
 .blog-piece p {
@@ -281,4 +295,16 @@ footer>div {
     color: white;
     margin: 0 auto;
     display: block;
+}
+
+.navSpace {
+    height: 60px;
+}
+
+.navPadding {
+    padding-top: 60px;
+}
+
+.principalColor {
+    color: #fea000 !important;
 }

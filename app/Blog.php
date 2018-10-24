@@ -20,5 +20,9 @@ class Blog extends Model
     {
         return $this->hasMany('App\BlogPhoto', 'blog_id', 'id');
     }
+
+    public function user() {
+        return $this->hasOne('App\User', 'id', 'user_id');
+    }
     
 }

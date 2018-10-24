@@ -18,22 +18,48 @@
 
 <div class="backgroundImg backgroundArticle" style="background-image: url({{ url('images/blog/' . $blog->id . '/' . $blog->img) }})"></div>
 
-<section class="blogContainer container" id="app">                                
+<section class="blogContainer" id="app">    
+    <div class="principalArticle">      
+        <p><a href="{{ url('/')}}">Inicio</a> >> <a href="{{ url('/blog')}}"> Blogs</a> >> {{ $blog->title}}
 
-            <h1 class="title"> {{ $blog->title}}</h1>
-            <p>{{ $blog->resume}}</p>
-            <img src="{{ url('images/blog/' . $blog->id . '/' . $blog->img) }}">
+        <h1 class="title"> {{ $blog->title}}</h1>
+        <p class="resume">{{ $blog->resume}}</p>
+        <p class="date">Fecha: <span class="ABlack">{{ $blog->date }}</span> >> Autor: 
+            @if($blog->user != NULL)
+                <span class="ABlack">{{ $blog->user->name }}</span>
+            @else
+                <span class="ABlack">Luis Guillén</span>             
+            @endif
+        </p>
+        <img class="imgPrincipalBlog" src="{{ url('images/blog/' . $blog->id . '/' . $blog->img) }}">
             
-            <h4> {{ $blog->date }}</h4>
+            
 
-            <div class="autor flex">
+            {{-- <div class="autor flex">
                 <div class="avatar">
+                    @if($blog->user->img != NULL)
+                    <img src="{{ url('images/users', $blog->user->img) }}">
+                    @else
                     <img src="{{ url('images/users/2.jpg') }}">
+                    @endif
                 </div>
                 <div class="text flex centerElements">                    
-                    <p class="outMargin"> Autor: <span class="ABlack">Luis Guillén</span> - Escrito: {{ $blog->created_at }}</p>
+                    <p class="outMargin"> Autor: 
+
+                        @if($blog->user != NULL)
+
+                            <span class="ABlack">{{ $blog->user->name }}</span>
+
+                        @else
+
+                            <span class="ABlack">Luis Guillén</span> 
+                            
+                        @endif
+
+                        - Escrito: {{ $blog->created_at }}</p>
+
                 </div>
-            </div><br>
+            </div> --}}
 
             <div class="justify-text">{!! $blog->text !!}</div>   
 
@@ -105,7 +131,18 @@
 
                 
             </div>            
+    </div>
 
+    <div class="moreArticles">
+        <h5 class="movil">Mas Articulos</h5>
+        @foreach($blogs as $article)
+        <a href="{{ url('blog', $blog->id)}}" class="article">
+            <img src="{{url('images/blog/' . $article->id . '/' . $article->img) }}">            
+            <h3>{{ $article->title }}</h3>
+            <p>{{ $article->resume }}</p>
+        </a>
+        @endforeach
+    </div>
 </section>
 
 @endsection

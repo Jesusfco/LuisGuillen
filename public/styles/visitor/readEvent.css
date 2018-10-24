@@ -2,46 +2,14 @@
     display: flex;
 }
 
+.container {
+    width: 700px;
+}
+
 .autor .avatar {
     width: 70px;
     border-radius: 50%;
     overflow: hidden;
-}
-
-.principalArticle {
-    width: 70%;
-}
-
-.moreArticles {
-    width: 30%;
-    padding-left: 25px;
-}
-
-.title {
-    font-size: 35px;
-    margin-bottom: 13px;
-}
-
-.date {
-    font-size: 11px;
-}
-
-.date .span {
-    font-weight: 800;
-}
-
-.imgPrincipalBlog {
-    margin-bottom: 25px;
-}
-
-.moreArticles a * {
-    margin-bottom: 8px;
-    color: black !important;
-    transition: .2s;
-}
-
-.moreArticles a:hover h3 {
-    color: rgb(255, 174, 0);
 }
 
 .autor .avatar img {
@@ -51,13 +19,6 @@
 
 .autor .text {
     padding-left: 20px;
-}
-
-.blogContainer {
-    width: 88%;
-    max-width: 1100px;
-    display: flex;
-    margin: 0 auto;
 }
 
 .blogContainer img {
@@ -74,22 +35,10 @@ section {
 }
 
 @media only screen and (max-width: 700px) {
-    .blogContainer {
-        padding: 18px;
+    .container {
+        width: 100%;
+        padding: 12px;
         padding-top: 35px;
-        width: 100%;
-        display: block;
-    }
-    .blogContainer>div {
-        width: 100%;
-    }
-    .moreArticles {
-        padding: 0;
-        margin-bottom: 35px;
-    }
-    .moreArticles h5 {
-        font-size: 25px;
-        text-align: center;
     }
 }
 
@@ -152,7 +101,7 @@ form button:hover {
 
 .commentary {
     padding: 15px;
-    border-bottom: 2px solid #ebd3b3;
+    border-bottom: 2px solid #86adb3;
 }
 
 .commentary .avatar {

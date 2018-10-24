@@ -4,7 +4,7 @@
 @section('activeLink', 'event')
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="{{ url('styles/visitor/article.css') }}">    
+    <link rel="stylesheet" type="text/css" href="{{ url('styles/visitor/readEvent.css') }}">    
 <meta property="og:url"                content="{{ url('eventos', $event->id)}}" />
     <meta property="og:type"               content="article" />
     <meta property="og:title"              content="{{ $event->name }}" />

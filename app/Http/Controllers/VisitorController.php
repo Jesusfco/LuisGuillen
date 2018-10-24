@@ -32,7 +32,9 @@ class VisitorController extends Controller
     public function readBlog($id) {
         $blog = Blog::find($id);
         if($blog == NULL) return 'Entrada inexistente';
-        return view('visitor/readBlog')->with(['blog' => $blog]);
+
+        $blogs = Blog::inRandomOrder()->limit(4)->get();
+        return view('visitor/readBlog')->with(['blog' => $blog, 'blogs' => $blogs]);
     }
 
     public function events() {
