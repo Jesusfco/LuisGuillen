@@ -9,13 +9,13 @@
 
 @section('content')  
 
-<div class="sliderContent">
+<div class="sliderContent navPadding">
 
     <div class="slide backgroundImg centerElements" style="background-image: url({{ url('images/index/slider1.jpg')}})">
         <div class="slide-text">
-            <p>Reprograma tu mente, reprograma tu vida</p>
-            <h1>Luis Guillén</h1>
-            <h1><i class="fas fa-angle-down"></i></h1>
+            <p class="principalColor">Reprograma tu mente, reprograma tu vida</p>
+            <h1 >Luis Guillén</h1>
+            <h1 class="principalColor"><i class="fas fa-angle-down"></i></h1>
         </div>
     </div>
 
@@ -68,19 +68,19 @@
             <div class="services">
                 <div>
                     <h2 class="centerText">Hipnosis</h2>
-                    <h3 class="centerText blueFont"><i class="fa fa-line-chart"></i></h3>
+                    <h3 class="centerText principalColor"><i class="fa fa-line-chart"></i></h3>
                     <p class="centerText">Es el trabajo con la mente subconsciente, quien es quien controla nuestros programas mentales</p>
                 </div>
 
                 <div>
                     <h2 class="centerText">PNL</h2>
-                    <h3 class="centerText blueFont"><i class="fas fa-cubes"></i></h3>
+                    <h3 class="centerText principalColor"><i class="fas fa-cubes"></i></h3>
                     <p class="centerText">Es un método de comunicación, su premisa parte de las teorías constructivistas que afirman el ser humano no opera directamente sobre el mundo real</p>
                 </div>
 
                 <div>
                     <h2 class="centerText">Neurociencia</h2>
-                    <h3 class="centerText blueFont"><i class="fas fa-brain"></i></h3>
+                    <h3 class="centerText principalColor"><i class="fas fa-brain"></i></h3>
                     <p class="centerText">Tenemos un cerebro y este es físico, PNL y la hipnosis mueven el software de la computadora humana (cerebro), con neurociencia tomamos en cuenta las condiciones físicas.</p>
                 </div>
         
@@ -102,7 +102,7 @@
                 <div class="blogContainer flex">
 
                     @foreach($blogs as $blog)
-                    <div class="blog-piece">
+                    {{-- <div class="blog-piece">
                     <img src="{{ url('images/blog/' . $blog->id . '/' . $blog->img) }}">
                         <div>
                             <h3> {{ $blog->title}}</h3><br>
@@ -111,7 +111,27 @@
                             <hr>
                         <a href="{{ url('blog', $blog->id ) }}"><button class="button">Leer más...</button></a>
                         </div> 
-                    </div>
+                    </div> --}}
+
+                    <div class="blog-piece">
+
+                            <img src="{{ url('images/blog/' . $blog->id . '/' . $blog->img) }}">
+                
+                            <div class="dataBlog">
+                                <h3> {{ $blog->title}}</h3>
+                                <p>{{ $blog->resume }}</p>                                
+                                <a href="{{ url('blog', $blog->id ) }}">LEER MÁS >></a>                
+                            </div> 
+                
+                            <div class="infBlog">
+                                @if($blog->user != NULL) 
+                                {{ $blog->user->name }} -
+                                @endif
+                
+                                {{ $blog->date}}
+                            </div>
+                
+                        </div>
 
                     @endforeach
                 </div>

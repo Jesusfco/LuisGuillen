@@ -21,30 +21,6 @@
     color: white
 }
 
-.dataBlog {
-    color: rgb(65, 65, 65);
-}
-
-.dataBlog h3 {
-    margin-bottom: 10px;
-}
-
-.dataBlog p {
-    font-size: 12px;
-    margin-bottom: 10px;
-}
-
-.dataBlog a {
-    font-weight: 800;
-}
-
-.infBlog {
-    border-top: 1px rgb(218, 218, 218) solid;
-    color: rgb(121, 121, 121);
-    font-size: 11px;
-    padding: 8px 15px;
-}
-
 .blogContainer {
     display: flex;
     flex-wrap: wrap;

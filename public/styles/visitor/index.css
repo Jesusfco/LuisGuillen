@@ -15,6 +15,14 @@
     cursor: pointer;
 }
 
+.slide-text * {
+    margin-bottom: 10px !important;
+}
+
+.slide-text p {
+    text-shadow: 0 0 3px rgb(0, 0, 0) !important;
+}
+
 .slide-text h1 {
     font-size: 60px;
 }
@@ -113,7 +121,7 @@
 /* CONTACTAME SECTION */
 
 .contactame {
-    background: #00C6C1;
+    background: rgb(255, 196, 0);
     padding-bottom: 70px;
 }
 
@@ -145,7 +153,7 @@ form button {
 }
 
 form button:hover {
-    background: rgb(114, 202, 198) !important;
+    background: rgba(255, 255, 255, 0) !important;
 }
 
 @media only screen and (max-width: 700px) {
