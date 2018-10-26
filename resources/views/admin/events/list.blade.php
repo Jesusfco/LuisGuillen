@@ -66,6 +66,7 @@
                                 @endif
 
                                 <a href="{{ url('app/events/tickets', $n->id) }}" class="btn black">Ver Boletos</a>
+                                <a href="{{ url('app/events/records', $n->id) }}" class="btn orange">Asistentes</a>
                             </td>
                         </tr>
                         

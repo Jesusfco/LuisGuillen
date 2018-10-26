@@ -13,6 +13,7 @@ use App\Event;
 use App\EventsDoubt;
 use Auth;
 use App\User;
+use App\Receipt;
 use Session;
 
 class VisitorController extends Controller
@@ -157,6 +158,25 @@ class VisitorController extends Controller
         Session::put('lastUrl', url()->previous());        
 
         return redirect('/auth/facebook');
+
+    }
+
+    public function viewTicket($id) {
+
+        if(!Auth::check()) {
+            return back();
+        }
+
+        $receipt = Receipt::find($id);
+
+        if(Auth::user()->user_type == 1) {
+
+        }
+
+        else if(Auth::user()->user_type == 3 || Auth::user()->user_type == 10) {
+            return view('admin/events/verifyTicket')->with('receipt', $receipt);
+        }
+        
 
     }
 }

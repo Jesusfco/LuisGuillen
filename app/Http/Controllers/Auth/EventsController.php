@@ -10,6 +10,7 @@ use App\EventsQuestion;
 use App\EventsQuestionsAnswer;
 use App\EventsDoubt;
 use App\User;
+use App\Record;
 use App\Mail\DoubtAnswerMail;
 use Image;
 use File;
@@ -260,6 +261,35 @@ class EventsController extends Controller
         $events = Event::where('name', 'LIKE', '%' . $re->term . '%')->limit(10)->get();
         return response()->json($events);
         
+    }
+
+    public function confirmRecord($id) {
+        
+        $receipt = Receipt::find($id);
+        $check = Record::where([
+            ['user_id', $receipt->user_id],
+            ['event_id', $receipt->event_id]
+            ])->first();
+
+        if($check != NULL) {
+            return 'Asistencia creada';
+        }
+
+        $record = new Record();
+        $record->user_id = $receipt->user_id;
+        $record->event_id = $receipt->event_id;
+        $record->save();
+         
+        return redirect('app/events/records/' . $receipt->id);
+    }
+
+    public function records($id){
+        $event = Event::find($id);
+        if($event == NULL) {
+            'Evento Inexistente';
+        }
+
+        return view('admin/events/records')->with('event', $event);
     }
 
 }
