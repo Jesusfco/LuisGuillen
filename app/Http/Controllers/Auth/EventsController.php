@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Event;
+use App\Receipt;
 use App\EventsQuestion;
 use App\EventsQuestionsAnswer;
 use App\EventsDoubt;
@@ -14,6 +15,8 @@ use Image;
 use File;
 use Auth;
 use Mail;
+use PDF;
+use QRCode;
 
 class EventsController extends Controller
 {
@@ -192,6 +195,33 @@ class EventsController extends Controller
         if($event == NULL) return 'Noticia inexistente';
 
         return view('admin/events/doubts')->with('event', $event);
+
+    }
+
+    public function viewClientTickets($id) {
+
+        $event = Event::find($id);
+        if($event == NULL) return 'Evento Inexistente';
+
+        return view('admin/events/tickets')->with('event', $event);
+
+    }
+
+    public function printTicket($ticket) {
+
+        $receipt = Receipt::find($ticket);
+        if($receipt == NULL) return 'Boleto Inexistente';
+
+        QRCode::text(url('boleto', $ticket))
+                ->setSize(4)
+                ->setMargin(2)
+                ->setOutfile('images/app/QR/tickets/'. $ticket . '.png')
+                ->png();  
+
+        set_time_limit(300);
+        
+        $pdf = PDF::loadView('admin/pdf/ticket', ['receipt' => $receipt] );
+        return $pdf->stream($receipt->event->name . ' #'. $receipt->id . '.pdf');  
 
     }
 

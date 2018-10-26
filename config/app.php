@@ -161,6 +161,9 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
+        LaravelQRCode\Providers\QRCodeServiceProvider::class,     
+        // Intervention\Image\Facades\Image::class,
 
         
 
@@ -214,6 +217,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         	
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
+        'QRCode' => LaravelQRCode\Facades\QRCode::class,   
+        // 'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 

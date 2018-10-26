@@ -64,6 +64,8 @@
                                 @if($n->avaibleC > 1)
                                     <a href="{{ url('app/receipts/create', $n->id) }}" class="btn purple">Generar Recibo</a>
                                 @endif
+
+                                <a href="{{ url('app/events/tickets', $n->id) }}" class="btn black">Ver Boletos</a>
                             </td>
                         </tr>
                         

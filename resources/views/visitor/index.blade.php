@@ -13,8 +13,9 @@
 
     <div class="slide backgroundImg centerElements" style="background-image: url({{ url('images/index/slider1.jpg')}})">
         <div class="slide-text">
-            <p class="principalColor">Reprograma tu mente, reprograma tu vida</p>
+            
             <h1 >Luis Guillén</h1>
+            <p class="principalColor">Reprograma tu mente, reprograma tu vida</p>
             <h1 class="principalColor"><i class="fas fa-angle-down"></i></h1>
         </div>
     </div>

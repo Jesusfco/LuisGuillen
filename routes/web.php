@@ -62,6 +62,8 @@ Route::get('/app/events/update/{id}', 'Auth\EventsController@edit');
 Route::post('/app/events/update/{id}', 'Auth\EventsController@update');
 Route::get('/app/events/destroy/{id}', 'Auth\EventsController@delete');
 Route::get('app/events/highlight/{id}', 'Auth\EventsController@highlight');
+Route::get('app/events/tickets/{id}', 'Auth\EventsController@viewClientTickets');
+Route::get('app/events/tickets/{id}/{ticket}', 'Auth\EventsController@printTicket');
 //Doubts
 Route::get('/app/events/doubts/{id}', 'Auth\EventsController@viewDoubts');
 Route::get('/app/events/doubts/{id}/getDoubts', 'Auth\EventsController@getDoubts');
