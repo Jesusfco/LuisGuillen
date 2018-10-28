@@ -22,6 +22,11 @@
 
     </div>
 
+    <div class="input-field col l6 s12">
+      <input type="password" name="password" >
+      <label>Contraseña</label>
+    </div>
+
     <div class="form-group col l6 s12">
       <label for="exampleInputPassword1">Teléfono</label>
       <input type="tel" value="{{ old('phone') }}" name="phone" class="form-control"  placeholder="000-000-0000" >

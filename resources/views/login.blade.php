@@ -1,22 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>LuisGuillen Panel</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="{{ url('css/admin/login.css')}}">
-    
-    
-</head>
-<body>
+@extends('structure.visitor')
 
-   
+@section('title', 'Login || Luis Guillen || Couch Mental')
+@section('activeLink', 'login')
 
-    <div class="cardSpace">
+@section('css')
+    <link rel="stylesheet" type="text/css" href="{{ url('styles/visitor/login.css') }}">    
+@endsection
+
+@section('content')  <!DOCTYPE html>
+
+<div class="cardSpace" style="background-image: url({{ url('images/login.JPG') }})">
 
 
 
@@ -31,7 +24,7 @@
     
             <div id="formSpace">
     
-                <form (submit)="accesar()" method="POST" action="" autocomplete="off">
+                <form (submit)="accesar()" method="POST" action="">
                     
                     {{ csrf_field() }}
     
@@ -53,11 +46,5 @@
     
     
         </div>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    </div>    
     
-    
-</body>
-</html>

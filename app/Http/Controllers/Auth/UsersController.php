@@ -44,6 +44,9 @@ class UsersController extends Controller
         $user->city = $this->upper($request->city);
         $user->state = $this->upper($request->state);
         $user->country = $this->upper( $request->country);
+        if($request->password != NULL) {
+            $user->password = bcrypt($request->password);
+        }
 
         $user->save();
 
@@ -83,7 +86,9 @@ class UsersController extends Controller
         $user->city = $this->upper($request->city);
         $user->state = $this->upper($request->state);
         $user->country =$this->upper( $request->country);
-
+        if($request->password != NULL) {
+            $user->password = bcrypt($request->password);
+        }
         $user->save();
 
         if($request->file('img') != NULL)

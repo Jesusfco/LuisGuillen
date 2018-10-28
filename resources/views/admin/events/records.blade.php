@@ -12,7 +12,11 @@
                     
                         <div class="col-xs-12 col-sm-6">
                             <h5>Evento >> {{ $event->name }} >> Asistentes </h5>
-                        </div>                                        
+                        </div>      
+                        
+                        @if($event->betweenDates())
+                        <a class="btn blue">Registrar Asistencia</a>
+                        @endif
                     
                     </div>
                                 

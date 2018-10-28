@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Event extends Model
 {
@@ -12,6 +13,34 @@ class Event extends Model
         'name', 'resume', 'place', 'date_to', 'date_from', 'description', 'img', 'cost', 'principal', 'capacity'
     ];
 
+    public function betweenDates() {
+        $dateFrom = new Carbon($this->date_from . ' 00:00:00');
+        $now = new Carbon();
+        // return $now;
+        // return $dateFrom;
+        if($this->date_to == NULL) {
+            if($dateFrom->year == $now->year && $dateFrom->month == $now->month && $dateFrom->day == $now->day) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+
+            $dateTo = new Carbon($this->date_to . ' 23:59:59');
+
+            if($now->greaterThanOrEqualTo($dateFrom)) {
+
+                if($now->lessThanOrEqualTo($dateTo)) {
+                    return true;
+                }
+                
+            }
+
+            return false;
+        }
+        
+    }
+    
     public function scopeSearch($query, $name) 
     {
         $n = $query->where('name', 'LIKE', "%$name%")->get();

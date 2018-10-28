@@ -43,7 +43,7 @@
                 <a href="{{ url('eventos')}}" id="eventWWW">Eventos</a>
                 <a href="{{ url('blog')}}" id="blogWWW">Blog</a>
                 <a href="">Contáctame</a>
-                <a href="{{ url('login')}}" id="blogWWW">Login</a>
+                <a href="{{ url('login')}}" id="loginWWW">Login</a>
             </div>
 
             <div class="iconMenuContainer movil" id="activeMovMenu">

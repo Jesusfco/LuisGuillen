@@ -70,10 +70,11 @@ Route::get('/app/events/doubts/{id}/getDoubts', 'Auth\EventsController@getDoubts
 Route::post('/app/events/doubts/{id}/updateDoubt', 'Auth\EventsController@updateDoubt');
 Route::post('/app/events/doubts/{id}/deleteDoubt', 'Auth\EventsController@deleteDoubt');
 
-//Verificacion de Boleto y asistencia
+//Verificacion de Boleto y asistencia -----HOST AREA ----
 Route::get('boleto/{id}', 'VisitorController@viewTicket');
-Route::post('boleto/{id}/confirm', 'Auth\EventsController@confirmRecord');
-Route::get('/app/events/records/{id}', 'Auth\EventsController@records');
+Route::post('boleto/{id}/confirm', 'Auth\HostController@confirmRecord');
+Route::get('/app/host/events/records/{id}', 'Auth\HostController@records');
+Route::get('/app/host/events', 'Auth\HostController@list');
 
 //Administraion de preguntas de evento
 Route::get('/app/events/update/{id}/getQuestions', 'Auth\EventsController@getQuestions');

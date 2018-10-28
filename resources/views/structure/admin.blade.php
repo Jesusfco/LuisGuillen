@@ -27,12 +27,22 @@
                 <img id="logo" src="{{url('images/logo2.png')}}">
             </a>
             
+            
             <div class="links">
+
+            @if(Auth::user()->user_type == 10)
+
                 <a href="{{ url('app/blog')}}"><p>Noticias</p></a>
                 <a href="{{ url('app/events')}}"><p>Eventos</p></a>
                 <a href="{{ url('app/receipts')}}"><p>Recibos</p></a>
-                <a href="{{ url('app/users')}}"><p>Usuarios</p></a>
-                <a href="{{ url('app/resetPassword')}}"><p>Cambiar contraseña</p></a>
+                <a href="{{ url('app/users')}}"><p>Usuarios</p></a>                            
+
+            @elseif(Auth::user()->user_type == 3)
+
+                <a href="{{ url('app/host/events')}}"><p>Eventos</p></a>
+                
+            @endif
+                <a href="{{ url('app/resetPassword')}}"><p>Cambiar contraseña</p></a>            
                 <a href="{{ url('logout')}}"><p>Cerrar Sesión<p></a>
             </div>
 
