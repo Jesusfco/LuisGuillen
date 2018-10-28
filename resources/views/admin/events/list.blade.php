@@ -103,17 +103,13 @@
                             <td>{{ $n->date_from }} @if($n->date_to != NULL) al <br>{{$n->date_to }} @endif</td>
                             <td>{{ $n->avaibleSpace()}}</td>
                         
-                            <td>
+                            <td>                                
                                 
-                                
-                                <a href="{{ url('eventos', $n->id) }}" class="btn green">Ver</a>
-                                
+                                <a href="{{ url('eventos', $n->id) }}" class="btn green">Ver</a>                                
 
                                 @if($n->avaibleC > 1)
                                     <a href="{{ url('app/receipts/create', $n->id) }}" class="btn purple">Generar Recibo</a>
-                                @endif
-
-                            
+                                @endif                            
 
                                 {{-- <a href="{{ url('app/events/tickets', $n->id) }}" class="btn black">Ver Boletos</a> --}}
                                 <a href="{{ url('app/host/events/records', $n->id) }}" class="btn orange">Asistentes</a>
