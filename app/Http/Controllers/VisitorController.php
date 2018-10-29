@@ -25,6 +25,10 @@ class VisitorController extends Controller
         return view('visitor/index')->with(['blogs' => $blogs, 'event' => $event]);
     }
 
+    public function luis() {
+        return view('visitor/luisguillen');
+    }
+
     public function blog() {
         $blogs = Blog::orderBy('date', 'DESC')->paginate(15);
         return view('visitor/blog')->with(['blogs' => $blogs]);

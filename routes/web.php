@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'VisitorController@index');
+Route::get('/luis-guillen', 'VisitorController@luis');
 Route::get('/blog', 'VisitorController@blog');
 Route::get('/blog/{id}', 'VisitorController@readBlog');
 Route::get('/blog/{id}/getComment', 'VisitorController@getComment');
@@ -79,6 +80,8 @@ Route::post('/app/host/events/records/{id}/postRecord', 'Auth\HostController@pos
 Route::post('/app/host/events/records/{id}/verifyRecord', 'Auth\HostController@verifyRecord');
 Route::get('/app/host/events', 'Auth\HostController@list');
 
+//Vendedor de boletos EVENTOS
+Route::get('/app/host', 'Auth\SellerController@list');
 
 //Administraion de preguntas de evento
 Route::get('/app/events/update/{id}/getQuestions', 'Auth\EventsController@getQuestions');

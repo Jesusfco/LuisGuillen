@@ -9,7 +9,8 @@
 
 @section('content')  
 
-<div class="sliderContent navPadding">
+<div class="navPadding topDiv">
+<div class="slider-container">
 
     <div class="slide backgroundImg centerElements" style="background-image: url({{ url('images/index/slider1.jpg')}})">
         <div class="slide-text">
@@ -19,6 +20,26 @@
             <h1 class="principalColor"><i class="fas fa-angle-down"></i></h1>
         </div>
     </div>
+
+    <div class="slide backgroundImg centerElements" style="background-image: url({{ url('images/index/3.jpg')}})">
+        <div class="slide-text">
+            
+            <h1 >Luis Guillén</h1>
+            <p class="principalColor">Reprograma tu mente, reprograma tu vida</p>
+            <h1 class="principalColor"><i class="fas fa-angle-down"></i></h1>
+        </div>
+    </div>
+
+    <div class="slide backgroundImg centerElements" style="background-image: url({{ url('images/index/2.jpg')}})">
+        <div class="slide-text">
+            
+            <h1 >Luis Guillén</h1>
+            <p class="principalColor">Reprograma tu mente, reprograma tu vida</p>
+            <h1 class="principalColor"><i class="fas fa-angle-down"></i></h1>
+        </div>
+    </div>
+
+</div>
 
 </div>
 
@@ -223,4 +244,8 @@
 
 
 
+@endsection
+
+@section('scripts')
+<script src="{{ url('js/visitor/quienSlider.js')}}"></script>
 @endsection

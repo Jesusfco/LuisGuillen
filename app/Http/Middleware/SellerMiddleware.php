@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Auth;
 
-class HostMiddleware
+class SellerMiddleware
 {
     /**
      * Handle an incoming request.
@@ -18,7 +18,7 @@ class HostMiddleware
     {
         if (Auth::check()) {
 
-            if(Auth::user()->user_type == 10 ||  Auth::user()->user_type == 3) {
+            if(Auth::user()->user_type == 10 ||  Auth::user()->user_type == 2) {
                 return $next($request);
             }
 
@@ -30,5 +30,4 @@ class HostMiddleware
             return redirect('/login');
         }
     }
-    
 }

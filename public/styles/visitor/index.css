@@ -1,12 +1,19 @@
-.sliderContent {
+.topDiv {
     height: 100vh;
     width: 100%;
 }
 
+.slider-container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
 .slide {
+    width: 100%;
     height: 100%;
     display: flex;
-    /* position: absolute; */
+    position: absolute;
 }
 
 .slide-text {

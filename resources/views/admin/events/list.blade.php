@@ -11,7 +11,7 @@
                     <div class="row">
                     
                     <div class="col-xs-12 col-sm-6">
-                    <h2>Eventos >> Lista</h2>
+                    <h4>Eventos >> Lista</h4>
                     </div>
 
                     @if(Auth::user()->user_type == 10)
@@ -104,7 +104,7 @@
                             <td>{{ $n->avaibleSpace()}}</td>
                         
                             <td>                                
-                                
+                                <a href="{{ url('app/host/events/records', $n->id) }}" class="btn orange">Asistentes</a>
                                 <a href="{{ url('eventos', $n->id) }}" class="btn green">Ver</a>                                
 
                                 @if($n->avaibleC > 1)
@@ -112,7 +112,7 @@
                                 @endif                            
 
                                 {{-- <a href="{{ url('app/events/tickets', $n->id) }}" class="btn black">Ver Boletos</a> --}}
-                                <a href="{{ url('app/host/events/records', $n->id) }}" class="btn orange">Asistentes</a>
+                                
                             </td>
                         </tr>
                         

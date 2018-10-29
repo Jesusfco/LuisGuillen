@@ -1,0 +1,64 @@
+.topDiv {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.topDiv>div {
+    width: 50%;
+}
+
+.howIM {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.howIM>div {
+    width: 60%;
+}
+
+.howIM>div h2 {
+    width: 100%;
+    text-align: center;
+}
+
+.slider-container {
+    width: 50%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+}
+
+@media only screen and (max-width: 850px) {
+    .topDiv>div {
+        width: 100%;
+        /* height: auto; */
+    }
+    .slider-container {
+        height: 50vh;
+        position: absolute;
+    }
+    .topDiv {
+        display: block;
+        height: auto;
+    }
+    .howIM {
+        margin-top: 50vh;
+    }
+    .howIM>div {
+        margin-top: 20px;
+        width: 100%;
+        padding: 15px;
+    }
+    .howIM p {
+        text-align: justify;
+    }
+}

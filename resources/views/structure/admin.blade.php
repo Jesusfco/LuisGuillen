@@ -37,10 +37,14 @@
                 <a href="{{ url('app/receipts')}}"><p>Recibos</p></a>
                 <a href="{{ url('app/users')}}"><p>Usuarios</p></a>                            
 
+            {{-- USER HOST --}}
             @elseif(Auth::user()->user_type == 3)
 
                 <a href="{{ url('app/host/events')}}"><p>Eventos</p></a>
-                
+
+            {{-- USER SELLER --}}
+            @elseif(Auth::user()->user_type == 2)    
+            <a href="{{ url('app/seller')}}"><p>Boletos</p></a>
             @endif
                 <a href="{{ url('app/resetPassword')}}"><p>Cambiar contraseña</p></a>            
                 <a href="{{ url('logout')}}"><p>Cerrar Sesión<p></a>

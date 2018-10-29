@@ -37,7 +37,7 @@
             <div class="links pc">
                 
                 <a href="{{ url('/')}}" id="homeWWW">Inicio</a>
-                <a href="" id="luisWWW">Luis Guillén</a>
+                <a href="{{ url('/luis-guillen')}}" id="luisWWW">Luis Guillén</a>
                 <a href="" id="coachWWW">Coach Mental</a>
                 <a href="" id="servicesWWW">Servicios</a>
                 <a href="{{ url('eventos')}}" id="eventWWW">Eventos</a>
@@ -64,7 +64,7 @@
         <div class="movMenuContainer">
                                 
             <a href="{{ url('/')}}" id="homeWWW">Inicio</a>
-            <a href="" id="luisWWW">Luis Guillén</a>
+            <a  href="{{ url('/luis-guillen')}}" id="luisWWW">Luis Guillén</a>
             <a href="" id="coachWWW">Coach Mental</a>
             <a href="" id="servicesWWW">Servicios</a>
             <a href="{{ url('eventos')}}" id="eventWWW">Eventos</a>
