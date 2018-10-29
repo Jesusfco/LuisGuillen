@@ -1,0 +1,29 @@
+.popOut {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.popOut .backShadow {
+    background: rgba(0, 0, 0, 0.26);
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+}
+
+.popOut .card {
+    max-width: 500px;
+}
+
+@media only screen and (max-width: 600px) {
+    .popOut .card {
+        width: 85%;
+    }
+}

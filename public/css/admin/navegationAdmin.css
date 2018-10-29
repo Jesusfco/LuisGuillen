@@ -28,12 +28,16 @@
 }
 
 @media only screen and (max-width: 900px) {
+    .margener {
+        width: 100%;
+        padding: 0;
+    }
     .menuIcon {
         position: absolute;
         right: 35px;
     }
     .content {
-        padding: 20px;
+        padding: 0 15px 15px 15px;
     }
     .navegation {
         height: unset;

@@ -35,11 +35,8 @@ class HostController extends Controller
             return 'Asistencia creada';
         }
 
-        $record = new Record();
-        $record->user_id = $receipt->user_id;
-        $record->event_id = $receipt->event_id;
-        $record->save();
-         
+        $record = $this->storeRecord($receipt);
+
         return redirect('app/events/records/' . $receipt->id);
 
     }
@@ -53,6 +50,59 @@ class HostController extends Controller
 
         return view('admin/events/records')->with('event', $event);
 
+    }
+
+    public function getRecords($id) {
+        $records = Record::where('event_id', $id)->with('user')->get();
+        return response()->json($records);
+    }
+
+    public function verifyRecord($id, Request $request) {
+
+        $receipt = Receipt::find($request->receipt_id);
+        if($receipt == NULL) {
+            return response()->json(['msj' => 'Boleto Inexistente'], 422);
+        }
+
+        $check = Record::where([
+            ['user_id', $receipt->user_id],
+            ['event_id', $receipt->event_id]
+            ])->first();
+
+        if($check != NULL) {
+            return response()->json(['msj' => 'Asistencia creada previamente'], 422);
+        }
+
+        $receipt = Receipt::where('id', $request->receipt_id)->with(['user', 'event'])->get()->first();
+        
+        return response()->json($receipt);
+        
+
+    }
+
+    public function postRecord($id, Request $request) {
+
+        $receipt = Receipt::find($request->receipt_id);
+        $check = Record::where([
+            ['user_id', $receipt->user_id],
+            ['event_id', $receipt->event_id]
+            ])->first();
+
+        if($check != NULL) {
+            return response()->json(['msj' => 'Asistencia creada previamente', 422]);
+        }
+
+        $record = $this->storeRecord($receipt);
+        return response()->json($record);
+
+    }
+
+    public function storeRecord($receipt) {
+        $record = new Record();
+        $record->user_id = $receipt->user_id;
+        $record->event_id = $receipt->event_id;
+        $record->save();
+        return $record;
     }
 
 }

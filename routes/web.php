@@ -74,7 +74,11 @@ Route::post('/app/events/doubts/{id}/deleteDoubt', 'Auth\EventsController@delete
 Route::get('boleto/{id}', 'VisitorController@viewTicket');
 Route::post('boleto/{id}/confirm', 'Auth\HostController@confirmRecord');
 Route::get('/app/host/events/records/{id}', 'Auth\HostController@records');
+Route::get('/app/host/events/records/{id}/getRecords', 'Auth\HostController@getRecords');
+Route::post('/app/host/events/records/{id}/postRecord', 'Auth\HostController@postRecord');
+Route::post('/app/host/events/records/{id}/verifyRecord', 'Auth\HostController@verifyRecord');
 Route::get('/app/host/events', 'Auth\HostController@list');
+
 
 //Administraion de preguntas de evento
 Route::get('/app/events/update/{id}/getQuestions', 'Auth\EventsController@getQuestions');
