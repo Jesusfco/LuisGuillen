@@ -11,7 +11,36 @@
     <meta property="og:description"        content="{{ $blog->resume }}" />
     <meta property="og:image"              content="{{ url('images/blog/' . $blog->id . '/' . $blog->img) }}" />
 
+    <style>
     
+
+
+    .youtubeContainer {
+        position: relative;
+        width: 75%;
+        margin: 0 auto;
+        display: block;
+        height: 0;
+        padding-bottom: 56.25%;
+        margin-bottom: 35px;
+
+    }
+
+    .youtubeContainer iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    @media screen and (max-width: 800px) {
+        .youtubeContainer {
+            width: 100%;
+        }
+    }
+
+    </style>
 @endsection
 
 @section('content')  
@@ -62,6 +91,10 @@
             </div> --}}
 
             <div class="justify-text">{!! $blog->text !!}</div>   
+
+            @if($blog->youtube != NULL)
+                <div class="youtubeContainer">{!! $blog->youtube !!}</div>
+            @endif
 
             <hr>
             <br>           
