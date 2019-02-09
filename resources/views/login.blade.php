@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url('styles/visitor/login.css') }}">    
 @endsection
 
-@section('content')  <!DOCTYPE html>
+@section('content') 
 
 <div class="cardSpace" style="background-image: url({{ url('images/login.JPG') }})">
 
@@ -48,3 +48,4 @@
         </div>
     </div>    
     
+@endsection
