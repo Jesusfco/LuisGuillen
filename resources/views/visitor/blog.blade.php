@@ -10,7 +10,7 @@
 @section('content')  
 
 <div class="navPadding headBlog">
-    <div class="backgroundImg" style="background-image: url({{ url('images/blog/background3.jpg')}})">
+    <div class="backgroundImg" style="background-image: url({{ url('images/blog/background.jpg')}})">
 
         <div class="container">        
             <h1>Luis Guillén</h1>
@@ -18,12 +18,11 @@
         </div>
 
     </div>
-
 </div>
 
 <section class="blogContainer container">
 
-    @for($i = 0; $i < 4; $i++)
+    
         @foreach($blogs as $blog)
     
         <div class="blog-piece">
@@ -47,8 +46,10 @@
         </div>
 
         @endforeach
-    @endfor
+    
 
 </section>
+
+<center>{{ $blogs->links() }}</center>
 
 @endsection

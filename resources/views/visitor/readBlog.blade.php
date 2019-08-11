@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url('styles/visitor/article.css') }}">    
     <meta property="og:url"                content="{{ url('blog', $blog->id)}}" />
     <meta property="og:type"               content="article" />
+    <meta property="fb:app_id"               content="951140095064464" />
     <meta property="og:title"              content="{{ $blog->title }}" />
     <meta property="og:description"        content="{{ $blog->resume }}" />
     <meta property="og:image"              content="{{ url('images/blog/' . $blog->id . '/' . $blog->img) }}" />
