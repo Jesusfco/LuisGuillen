@@ -65,7 +65,7 @@ class BlogController extends Controller
         ->fit(900,600)
         ->save("images/blog/" . $blog->id . '/' . $file_route);
 
-        return redirect('/app/blog');
+        return redirect('/app/blog')->with('msj', "Articulo  $blog->title creado correctamente");
     }
 
     public function edit($id)
@@ -109,7 +109,7 @@ class BlogController extends Controller
         $blog->youtube = $request->youtube;
         $blog->save();
 
-        return redirect('/app/blog/update/'.$blog->id);
+        return redirect('/app/blog/update/'.$blog->id)->with('msj', 'Articulo actualizado correctamente');
     }
 
     public function destroy(Request $request)

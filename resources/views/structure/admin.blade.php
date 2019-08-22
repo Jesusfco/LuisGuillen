@@ -65,6 +65,17 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <script src="{{ url('js/visitor/menu.js') }}"></script>
+    <script>
+            $(document).ready(function(){
+               $('select').formSelect();
+               $('.fixed-action-btn').floatingActionButton();
+               $('.tooltipped').tooltip();
+           })
+           
+           @if(session('msj'))    
+               M.toast({html: '{{session('msj')}}'})        
+           @endif
+    </script>
     @yield('scripts')
     
 </body>
