@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon;
 
 class Blog extends Model
 {
@@ -25,4 +26,11 @@ class Blog extends Model
         return $this->hasOne('App\User', 'id', 'user_id');
     }
     
+    public function getImgUrl() {
+        return url('images/blog/' . $this->id . '/' . $this->img);
+    }
+
+    public function getFormatDate(){
+        return Carbon::parse($this->date)->format('M d, Y');
+    }
 }

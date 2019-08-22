@@ -9,7 +9,7 @@
 
 @section('content')  
 
-<div class="navPadding headBlog">
+{{-- <div class="navPadding headBlog">
     <div class="backgroundImg" style="background-image: url({{ url('images/blog/background.jpg')}})">
 
         <div class="container">        
@@ -18,8 +18,13 @@
         </div>
 
     </div>
-</div>
+</div> --}}    
 
+<section class="navPadding container">
+    <br>
+    <div class="line" ></div>
+    <h1 class="title" >Blog</h1>
+</section>
 <section class="blogContainer container">
 
     

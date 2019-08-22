@@ -9,14 +9,14 @@
 
 @section('content') 
 
-<div class="cardSpace" style="background-image: url({{ url('images/login.JPG') }})">
+<div class="cardSpace navPadding" style="background-image: url({{ url('images/login.JPG') }})">
 
 
 
         <div class="loginCardModule">
             <h2 id="bienvenida">INICIA SESIÓN</h2>
     
-            <img id="logo" src="{{url('images/luis/1.png')}}">
+            <img id="logo" src="{{url('images/logo1.png')}}">
     
             <br>
     

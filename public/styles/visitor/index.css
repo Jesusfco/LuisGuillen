@@ -42,7 +42,7 @@
 /* LUISGUILLEN */
 
 .luisguillen {
-    height: 500px;
+    /* height: 500px; */
     display: block;
 }
 
@@ -84,7 +84,7 @@
 /* COACHMENTAL SECTION */
 
 .coachmental {
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .coachmental .container {
@@ -99,7 +99,7 @@
 
 .services {
     display: flex;
-    padding: 40px;
+    padding: 0 20px;
 }
 
 .services div h3 {
@@ -177,10 +177,12 @@ form button:hover {
 
 .blog {
     padding-bottom: 35px;
+    overflow: visible;
 }
 
 .blogContainer {
-    justify-content: space-between
+    justify-content: space-between;
+    overflow: visible;
 }
 
 .blogContainer .blog-piece {

@@ -10,7 +10,7 @@
     <meta property="fb:app_id"               content="951140095064464" />
     <meta property="og:title"              content="{{ $blog->title }}" />
     <meta property="og:description"        content="{{ $blog->resume }}" />
-    <meta property="og:image"              content="{{ url('images/blog/' . $blog->id . '/' . $blog->img) }}" />
+    <meta property="og:image"              content="{{ $blog->getImgUrl() }}" />
 
     <style>
     
@@ -46,22 +46,16 @@
 
 @section('content')  
 
-<div class="backgroundImg backgroundArticle" style="background-image: url({{ url('images/blog/' . $blog->id . '/' . $blog->img) }})"></div>
+<div class="backgroundImg backgroundArticle" style="background-image: url({{ $blog->getImgUrl() }})"></div>
 
 <section class="blogContainer" id="app">    
     <div class="principalArticle">      
         <p><a href="{{ url('/')}}">Inicio</a> >> <a href="{{ url('/blog')}}"> Blogs</a> >> {{ $blog->title}}
 
         <h1 class="title"> {{ $blog->title}}</h1>
-        <p class="resume">{{ $blog->resume}}</p>
-        <p class="date">Fecha: <span class="ABlack">{{ $blog->date }}</span> >> Autor: 
-            @if($blog->user != NULL)
-                <span class="ABlack">{{ $blog->user->name }}</span>
-            @else
-                <span class="ABlack">Luis Guillén</span>             
-            @endif
-        </p>
-        <img class="imgPrincipalBlog" src="{{ url('images/blog/' . $blog->id . '/' . $blog->img) }}">
+        <p class="">{{ Carbon::parse($blog->date)->format('M d, Y') }}</p>        
+        <p class="resume">{{ $blog->resume}}</p>        
+        <img class="imgPrincipalBlog" src="{{ $blog->getImgUrl() }}">
             
             
 
@@ -100,14 +94,18 @@
             <hr>
             <br>           
             
-            <div class="fb-share-button" data-href="{{ url()->current()}}" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
+            <div class="fb-share-button" data-href="{{ url()->current()}}" data-layout="button_count" data-size="" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
             
             <br><br>
             <hr>
 
+            <div class="fb-comments" data-href="{{ url()->current() }}" data-width="" data-numposts="5" data-mobile="true"></div>
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v4.0&appId=951140095064464&autoLogAppEvents=1"></script>
+
             {{-- SECCION DE COMENTARIOS --}}
 
-            @if(Auth::check())         
+        {{--     @if(Auth::check())         
 
             <div class="newComment flex">
 
@@ -121,7 +119,7 @@
                 </div>
 
                 <div class="text ">
-                    {{-- <h5>Agrega un comentario</h5> --}}
+                    <h5>Agrega un comentario</h5>
 
                     <form v-on:submit.prevent="newComment()">                    
                         <textarea v-model="comment.comment"></textarea>
@@ -164,7 +162,7 @@
                 
 
                 
-            </div>            
+            </div>             --}}
     </div>
 
     <div class="moreArticles">

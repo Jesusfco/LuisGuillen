@@ -30,8 +30,10 @@
 
         <div class="container">
 
-            <div>
-                <img src="{{ url('images/logo2.png') }}" alt="">
+            <div class="logo-nav-container">
+                <a href="{{ url('/')}}">
+                    <img src="{{ url('images/logo2.png') }}" alt="">
+                </a>
             </div>
 
             <div class="links pc">
@@ -42,7 +44,7 @@
                 <a href="" id="servicesWWW">Servicios</a>
                 <a href="{{ url('eventos')}}" id="eventWWW">Eventos</a>
                 <a href="{{ url('blog')}}" id="blogWWW">Blog</a>
-                <a href="">Contáctame</a>
+                <a href="{{ url('/')}}#contacto">Contáctame</a>
                 <a href="{{ url('login')}}" id="loginWWW">Login</a>
             </div>
 
@@ -69,7 +71,7 @@
             <a href="" id="servicesWWW">Servicios</a>
             <a href="{{ url('eventos')}}" id="eventWWW">Eventos</a>
             <a href="{{ url('blog')}}" id="blogWWW">Blog</a>
-            <a href="">Contáctame</a>                
+            <a href="{{ url('/')}}#contacto">Contáctame</a>                
 
         </div>
     </div>
